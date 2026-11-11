@@ -208,7 +208,6 @@ section{padding:clamp(72px,9vw,128px) 0}
 .plan__once{font-size:.85rem;color:var(--ink-soft);margin-bottom:24px}
 .plan__thumbs{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 12px 14px;margin:0 0 24px;display:grid;gap:12px;justify-items:center}
 .plan__row{display:flex;justify-content:center;align-items:flex-end;gap:10px;flex-wrap:nowrap}
-.plan__row img.thumb-app{background:none;box-shadow:none;border-radius:0}
 .plan__row img{border-radius:3px;background:#fff;box-shadow:0 6px 14px -6px rgba(60,40,15,.45);height:96px;width:auto}
 .plan__row--bonus img{height:70px}
 .plan__row--bonus{gap:7px}
@@ -232,10 +231,10 @@ section{padding:clamp(72px,9vw,128px) 0}
 /* Bónus */
 .bonus__list{display:grid;gap:clamp(18px,2.4vw,26px);grid-template-columns:repeat(6,1fr)}
 .bonus{grid-column:span 2;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.bonus:nth-child(4),.bonus:nth-child(5){grid-column:span 3}
 .bonus__img{background:var(--sand);padding:24px 22px 0;display:flex;justify-content:center;align-items:flex-start;height:240px;overflow:hidden}
 .bonus__img img{width:64%;max-width:220px;border-radius:4px 4px 0 0;box-shadow:0 6px 18px -6px rgba(60,40,15,.35);transition:transform .45s cubic-bezier(.16,1,.3,1)}
-.bonus--app .bonus__img{background:linear-gradient(180deg,#EAD8B4,var(--sand))}
-.bonus--app .bonus__img img{width:46%;max-width:170px;border-radius:26px 26px 0 0;box-shadow:none}
+.bonus:nth-child(4) .bonus__img img,.bonus:nth-child(5) .bonus__img img{width:44%}
 .bonus:hover .bonus__img img{transform:translateY(-6px) rotate(-1deg)}
 .bonus__body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
 .bonus__tag{font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
@@ -302,7 +301,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 .up h2{font-size:clamp(1.6rem,1.2rem + 2vw,2.2rem)}
 .up .lead{margin:12px auto 22px;font-size:1rem}
 .up__covers{display:flex;justify-content:center;gap:8px;margin-bottom:22px}
-.up__covers img{width:15%;border-radius:3px;box-shadow:0 8px 16px -8px rgba(60,40,15,.5)}
+.up__covers img{width:18%;border-radius:3px;box-shadow:0 8px 16px -8px rgba(60,40,15,.5)}
 .up__covers img:nth-child(odd){transform:translateY(6px)}
 .up__decline{display:inline-block;margin-top:16px;font-size:.88rem;color:var(--ink-soft);background:none;border:0;cursor:pointer;text-decoration:underline;font-family:var(--sans)}
 .up__decline:hover{color:var(--ink)}
@@ -316,7 +315,10 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
   .anatomy__grid .page-zoom{max-width:520px;margin:0 auto}
   .who__img{max-width:420px;margin:0 auto}
   .bonus__list{grid-template-columns:1fr 1fr}
-  .bonus{grid-column:span 1}
+  .bonus,.bonus:nth-child(4),.bonus:nth-child(5){grid-column:span 1}
+  .bonus:nth-child(5){grid-column:span 2}
+  .bonus:nth-child(4) .bonus__img img,.bonus:nth-child(5) .bonus__img img{width:64%}
+  .bonus:nth-child(5) .bonus__img img{width:34%}
 }
 @media (max-width:760px){
   .vs,.plans__grid{grid-template-columns:1fr}
@@ -331,6 +333,8 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 }
 @media (max-width:560px){
   .bonus__list{grid-template-columns:1fr}
+  .bonus:nth-child(5){grid-column:span 1}
+  .bonus:nth-child(5) .bonus__img img{width:64%}
   .stage__tag{right:0;bottom:6%;max-width:150px;padding:10px 12px}
   .hero__cta .btn{width:100%}
   .sticky p span{display:none}
@@ -365,8 +369,8 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <div class="ticker" aria-label="Destaques">
   <div class="ticker__track" aria-hidden="true">
-    <span>6 bónus no Pack Completo</span><span>Acesso imediato</span><span>Pronto a imprimir</span><span>Versão de parede e de mesa</span><span>Garantia de 7 dias</span><span>Pagamento único</span>
-    <span>6 bónus no Pack Completo</span><span>Acesso imediato</span><span>Pronto a imprimir</span><span>Versão de parede e de mesa</span><span>Garantia de 7 dias</span><span>Pagamento único</span>
+    <span>5 bónus no Pack Completo</span><span>Acesso imediato</span><span>Pronto a imprimir</span><span>Versão de parede e de mesa</span><span>Garantia de 7 dias</span><span>Pagamento único</span>
+    <span>5 bónus no Pack Completo</span><span>Acesso imediato</span><span>Pronto a imprimir</span><span>Versão de parede e de mesa</span><span>Garantia de 7 dias</span><span>Pagamento único</span>
   </div>
 </div>
 
@@ -510,7 +514,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <div class="ornament"><svg aria-hidden="true"><use href="#i-diamond"/></svg></div>
     </div>
     <ol class="steps">
-      <li><span class="ico"><svg aria-hidden="true"><use href="#i-choose"/></svg></span><div><h3>Escolhe</h3><p>O Pack Essencial ou o Pack Completo com os 6 bónus.</p></div></li>
+      <li><span class="ico"><svg aria-hidden="true"><use href="#i-choose"/></svg></span><div><h3>Escolhe</h3><p>O Pack Essencial ou o Pack Completo com os 5 bónus.</p></div></li>
       <li><span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><div><h3>Recebe</h3><p>Os ficheiros chegam ao teu e-mail logo após o pagamento.</p></div></li>
       <li><span class="ico"><svg aria-hidden="true"><use href="#i-print"/></svg></span><div><h3>Imprime</h3><p>Em casa ou numa reprografia, em papel A4. Cada ficheiro traz instruções.</p></div></li>
       <li><span class="ico"><svg aria-hidden="true"><use href="#i-home"/></svg></span><div><h3>Reza</h3><p>Pendura na cozinha, no oratório ou deixa na secretária.</p></div></li>
@@ -537,7 +541,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de mesa A5, a cores</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Guia das cores litúrgicas e visão geral do ano</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Oração da Bênção do Lar</li>
-          <li class="off"><svg aria-hidden="true"><use href="#i-x"/></svg>Sem os 6 bónus</li>
+          <li class="off"><svg aria-hidden="true"><use href="#i-x"/></svg>Sem os 5 bónus</li>
         </ul>
         <a class="btn" href="#" data-plan="essencial">Quero o Essencial</a>
       </article>
@@ -548,16 +552,15 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <p class="plan__sub">O calendário e tudo para rezar o ano em família</p>
         <p class="plan__price"><b>14,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
-        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01.jpg" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1.jpg" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1.jpg" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1.jpg" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05.jpg" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"><img class="thumb-app" src="assets/app-oracoes.png" alt="Aplicação de Orações Diárias" width="34" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 6 bónus</b></figcaption></figure>
+        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01.jpg" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1.jpg" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1.jpg" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1.jpg" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05.jpg" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 5 bónus</b></figcaption></figure>
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tudo o que está no Pack Essencial</li>
-          <li class="plan__sep">E ainda 6 bónus</li>
+          <li class="plan__sep">E ainda 5 bónus</li>
           <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Novenas do Ano 2027</li>
           <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Guia do Santo Terço</li>
           <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Evangelhos dos Domingos 2027</li>
           <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Santinhos para oferecer</li>
           <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Calendário a preto e branco</li>
-          <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Aplicação de Orações Diárias</li>
         </ul>
         <a class="btn" href="#" data-plan="completo">Quero o Completo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
@@ -573,8 +576,8 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 <section class="bonus-sec" id="bonus">
   <div class="wrap">
     <div class="sec-head center">
-      <h2>Seis bónus para rezar o ano todo.</h2>
-      <p class="lead">Incluídos no Pack Completo: cinco livros prontos a imprimir, com o mesmo cuidado do calendário, e uma aplicação com uma oração nova todas as manhãs.</p>
+      <h2>Cinco bónus para rezar o ano todo.</h2>
+      <p class="lead">Incluídos no Pack Completo. Cada um é um PDF pronto a imprimir, com o mesmo cuidado do calendário.</p>
     </div>
     <div class="bonus__list">
       <article class="bonus">
@@ -622,15 +625,6 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
           <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
         </div>
       </article>
-      <article class="bonus bonus--app">
-        <div class="bonus__img"><img src="assets/app-oracoes.png" alt="Aplicação de Orações Diárias aberta na oração da manhã" width="400" height="822" loading="lazy"></div>
-        <div class="bonus__body">
-          <span class="bonus__tag">Bónus 6</span>
-          <h3>Aplicação de Orações Diárias</h3>
-          <p>Todos os dias recebes uma oração nova para ler pela manhã, logo ao acordar. Começa o dia com Deus, direto no telemóvel.</p>
-          <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -674,7 +668,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <details><summary>Que papel devo usar?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">O papel A4 comum funciona, mas o calendário fica mais bonito e dura mais em papel fotográfico mate ou cartolina fina de 150 a 180 g. Na impressora, escolhe "Tamanho real" ou "100%".</p></details>
       <details><summary>Posso imprimir a preto e branco?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Sim. O Pack Completo inclui uma versão a preto e branco feita para poupar tinta, com as cores litúrgicas indicadas em siglas.</p></details>
       <details><summary>Como monto o calendário?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">A versão de parede pode ser encadernada com argolas numa reprografia, ou furada em casa e presa com uma fita. A versão de mesa traz dois meses por folha: cortas ao meio e colocas num suporte ou num cavalete. Cada ficheiro tem as instruções na primeira página.</p></details>
-      <details><summary>Qual é a diferença entre os dois packs?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">O Pack Essencial tem o calendário de parede e de mesa. O Pack Completo tem o mesmo calendário e mais 6 bónus: Novenas do Ano, Guia do Santo Terço, Evangelhos dos Domingos, Santinhos para oferecer, a versão a preto e branco e a Aplicação de Orações Diárias.</p></details>
+      <details><summary>Qual é a diferença entre os dois packs?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">O Pack Essencial tem o calendário de parede e de mesa. O Pack Completo tem o mesmo calendário e mais 5 bónus: Novenas do Ano, Guia do Santo Terço, Evangelhos dos Domingos, Santinhos para oferecer e a versão a preto e branco.</p></details>
       <details><summary>O pagamento é mensal?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Não. Pagas uma única vez e os ficheiros ficam teus.</p></details>
       <details><summary>Posso imprimir mais do que uma cópia?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Sim, para a tua casa e para oferecer a familiares e amigos. Não é permitido revender os ficheiros nem partilhá-los publicamente.</p></details>
       <details><summary>Consigo ver no telemóvel ou no tablet?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Sim, os PDF abrem em qualquer telemóvel, tablet ou computador. Ainda assim, o calendário foi pensado para ser impresso e ficar à vista de toda a família.</p></details>
@@ -712,9 +706,9 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
   <div class="up">
     <button class="x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
     <h2 id="up-t">Antes de continuares…</h2>
-    <p class="lead">Por mais 7&nbsp;€ levas as Novenas, o Terço, os Evangelhos dos Domingos, os Santinhos, a versão a preto e branco e a Aplicação de Orações Diárias, com uma oração nova todas as manhãs.</p>
+    <p class="lead">Por mais 7&nbsp;€ levas as Novenas, o Terço, os Evangelhos dos Domingos, os Santinhos e a versão a preto e branco. Cinco livros para rezar o ano inteiro.</p>
     <div class="up__covers" aria-hidden="true">
-      <img src="assets/b-novenas-01.jpg" alt=""><img src="assets/b-terco-1.jpg" alt=""><img src="assets/b-evangelhos-1.jpg" alt=""><img src="assets/b-santinhos-1.jpg" alt=""><img src="assets/b-pb-05.jpg" alt=""><img src="assets/app-oracoes.png" alt="" style="width:11%;box-shadow:none;border-radius:0">
+      <img src="assets/b-novenas-01.jpg" alt=""><img src="assets/b-terco-1.jpg" alt=""><img src="assets/b-evangelhos-1.jpg" alt=""><img src="assets/b-santinhos-1.jpg" alt=""><img src="assets/b-pb-05.jpg" alt="">
     </div>
     <a class="btn btn--block" href="#" data-plan="completo" data-direct>Sim, quero o Pack Completo · 14,90&nbsp;€</a>
     <button class="up__decline" type="button" data-plan-decline>Não, obrigado. Quero só o Essencial · 7,90&nbsp;€</button>
