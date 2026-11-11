@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendário Católico 2027 · Lar de Fé</title>
+<meta name="description" content="Calendário Católico 2027 para imprimir em casa: santo do dia, cores litúrgicas, fases da lua e uma devoção para cada mês. Versão de parede e de mesa. Desde 7,90&nbsp;€.">
+<meta property="og:title" content="Calendário Católico 2027 · Lar de Fé">
+<meta property="og:description" content="Um ano inteiro com Deus, na parede da tua casa. Santo do dia, cores litúrgicas e devoção do mês. Desde 7,90&nbsp;€.">
+<meta property="og:image" content="assets/capa-parede.jpg">
+<meta property="og:locale" content="pt_PT">
+<meta name="theme-color" content="#F6F0E5">
+<link rel="icon" href="assets/logo-lar-de-fe.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F2;
+  --cream:#F6F0E5;
+  --sand:#EDE3D1;
+  --line:#E2D5BD;
+  --gold:#B48A45;
+  --gold-ink:#7E5F28;
+  --navy:#26395A;
+  --navy-deep:#1B2A44;
+  --ink:#2C2420;
+  --ink-soft:#5C5048;
+  --green:#4F7A4C;
+  --green-deep:#3C6139;
+  --violet:#6A4B8B;
+  --red:#B4332E;
+  --rose:#CF8BA0;
+  --shadow:0 18px 40px -18px rgba(60,40,15,.35),0 4px 12px -6px rgba(60,40,15,.18);
+  --radius:14px;
+  --serif:"Lora",Georgia,"Times New Roman",serif;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1160px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.65 var(--sans);overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-underline-offset:.2em}
+::selection{background:#E9D6AE;color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,1.2rem + 2.6vw,3rem)}
+h3{font-size:1.3rem}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+section{padding:clamp(72px,9vw,128px) 0}
+.lead{font-size:1.08rem;color:var(--ink-soft);max-width:60ch}
+.center{text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+.sec-head{margin-bottom:clamp(36px,5vw,56px)}
+.sec-head .lead{margin-top:16px}
+.ornament{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);margin:18px auto 0;width:180px}
+.ornament::before,.ornament::after{content:"";height:1px;flex:1;background:currentColor;opacity:.6}
+.ornament svg{width:9px;height:9px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;border:0;background:var(--green);color:#fff;font:600 .95rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 10px 22px -10px rgba(48,86,45,.7);transition:background .2s,transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s}
+.btn:hover{background:var(--green-deep);transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(48,86,45,.75)}
+.btn:active{transform:translateY(0)}
+.btn svg{width:18px;height:18px}
+.btn--ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}
+.btn--ghost:hover{background:var(--navy);color:#fff;box-shadow:none}
+.btn--block{width:100%}
+
+/* Faixa de topo */
+.ticker{background:var(--navy-deep);color:#F3E9D2;font:500 .8rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
+.ticker__track{display:inline-flex;gap:0;padding:12px 0;animation:tick 38s linear infinite}
+.ticker__track span{display:inline-flex;align-items:center;gap:14px;padding:0 14px}
+.ticker__track span::after{content:"";width:5px;height:5px;transform:rotate(45deg);background:var(--gold)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Cabeçalho */
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:52px;height:52px;border-radius:50%}
+.brand b{font:600 1.15rem/1 var(--serif)}
+.brand small{display:block;font:500 .66rem/1 var(--sans);letter-spacing:.3em;color:var(--gold-ink);margin-top:5px}
+.top a.link{font:500 .9rem var(--sans);color:var(--navy);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.top a.link:hover{border-color:var(--navy)}
+
+/* Hero */
+.hero{padding:clamp(24px,4vw,56px) 0 clamp(72px,9vw,120px);background:
+  radial-gradient(120% 80% at 85% 10%,#F1E4CA 0%,rgba(241,228,202,0) 60%),var(--paper)}
+.hero__grid{display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.3rem);font-weight:500}
+.hero h1 em{font-style:italic;color:var(--gold-ink)}
+.hero .lead{margin-top:22px;font-size:1.12rem}
+.ticks{list-style:none;padding:0;margin:26px 0 32px;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;align-items:flex-start}
+.ticks svg{flex:none;width:22px;height:22px;margin-top:2px;color:var(--green)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
+.hero__price{font:400 .95rem var(--sans);color:var(--ink-soft)}
+.hero__price b{font:600 1.35rem var(--serif);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;padding:0;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font:500 .8rem var(--sans);color:var(--ink-soft)}
+.chips svg{width:15px;height:15px;color:var(--gold)}
+
+.stage{position:relative;aspect-ratio:1/1.08;max-width:560px;margin-left:auto;width:100%}
+.sheet{position:absolute;border-radius:6px;background:#fff;box-shadow:var(--shadow);overflow:hidden}
+.sheet img{width:100%;height:100%;object-fit:cover}
+.sheet--wall{width:66%;left:17%;top:0;z-index:2;aspect-ratio:900/1273;transform:rotate(-1.5deg)}
+.sheet--month{width:52%;right:-2%;top:9%;z-index:1;aspect-ratio:900/1273;transform:rotate(6deg)}
+.sheet--desk{width:58%;left:-4%;bottom:2%;z-index:3;aspect-ratio:700/495;transform:rotate(-5deg)}
+.stage__tag{position:absolute;z-index:4;right:4%;bottom:12%;background:var(--navy);color:#F3E9D2;padding:12px 16px;border-radius:12px;font:500 .78rem/1.35 var(--sans);box-shadow:var(--shadow);max-width:170px}
+.stage__tag b{display:block;font:600 1.05rem/1.2 var(--serif);color:#fff}
+@media (prefers-reduced-motion:no-preference){
+  .sheet--wall{animation:dealWall 1.1s cubic-bezier(.16,1,.3,1) both}
+  .sheet--month{animation:dealMonth 1.3s .12s cubic-bezier(.16,1,.3,1) both}
+  .sheet--desk{animation:dealDesk 1.3s .24s cubic-bezier(.16,1,.3,1) both}
+  @keyframes dealWall{from{transform:rotate(0) translateY(14px);opacity:.6}}
+  @keyframes dealMonth{from{transform:rotate(0) translateX(-30%);opacity:.4}}
+  @keyframes dealDesk{from{transform:rotate(0) translateX(20%);opacity:.4}}
+}
+
+/* Comparação */
+.compare{background:var(--cream)}
+.vs{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;align-items:stretch}
+.vs__col{border-radius:var(--radius);padding:clamp(26px,3.5vw,42px)}
+.vs__col h3{margin-bottom:22px}
+.vs__col ul{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.vs__col li{display:flex;gap:12px}
+.vs__col li svg{flex:none;width:20px;height:20px;margin-top:3px}
+.vs__plain{background:transparent;border:1px dashed #CDBFA6;color:var(--ink-soft)}
+.vs__plain svg{color:#A99A85}
+.vs__plain h3{color:var(--ink-soft)}
+.vs__ours{background:#fff;box-shadow:var(--shadow);border:1px solid var(--line)}
+.vs__ours svg{color:var(--green)}
+
+/* Anatomia do mês */
+.anatomy__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.page-zoom{position:relative;border-radius:8px;box-shadow:var(--shadow);background:#fff}
+.page-zoom img{border-radius:8px}
+.pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font:600 .85rem/30px var(--sans);text-align:center;box-shadow:0 0 0 4px rgba(255,255,255,.85),0 6px 14px -4px rgba(0,0,0,.4);transform:translate(-50%,-50%)}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:22px;counter-reset:l}
+.legend li{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:start}
+.legend li::before{counter-increment:l;content:counter(l);width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font:600 .85rem/30px var(--sans);text-align:center}
+.legend h3{font-size:1.15rem;margin-bottom:4px}
+.legend p{color:var(--ink-soft);font-size:.95rem}
+.colors{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
+.colors span{display:inline-flex;align-items:center;gap:6px}
+.colors i{width:11px;height:11px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.12)}
+
+/* Galeria */
+.gallery{background:var(--navy-deep);color:#F3E9D2;overflow:hidden}
+.gallery h2{color:#fff}
+.gallery .lead{color:#CFC5B2}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,26vw,300px);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 20px 28px;margin:0 -20px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{height:6px}
+.rail::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px}
+.rail::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:99px}
+.month{scroll-snap-align:start;margin:0}
+.month button{all:unset;cursor:zoom-in;display:block;border-radius:6px;overflow:hidden;box-shadow:0 18px 30px -18px rgba(0,0,0,.8);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.month button:hover{transform:translateY(-6px)}
+.month button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.month figcaption{margin-top:14px}
+.month b{display:block;font:500 1.2rem var(--serif);color:#fff}
+.month span{font-size:.85rem;color:#CFC5B2}
+.rail-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:-6px;margin-bottom:22px}
+.rail-nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(243,233,210,.35);background:transparent;color:#F3E9D2;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.rail-nav button:hover{background:rgba(243,233,210,.12)}
+.rail-nav svg{width:18px;height:18px}
+.gallery__note{margin-top:8px;font-size:.9rem;color:#CFC5B2}
+
+/* Como funciona */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;list-style:none;padding:0;margin:0}
+.steps li{padding:0 18px;text-align:center;position:relative}
+.steps li+li::before{content:"";position:absolute;top:31px;left:-50%;width:100%;height:1px;background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px);z-index:0}
+.steps .ico{position:relative;z-index:1;width:62px;height:62px;border-radius:50%;margin:0 auto 18px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-ink)}
+.steps .ico svg{width:26px;height:26px}
+.steps h3{font-size:1.15rem;margin-bottom:6px}
+.steps p{color:var(--ink-soft);font-size:.93rem}
+.steps-note{margin-top:40px;text-align:center;font-size:.95rem;color:var(--ink-soft)}
+
+/* Planos */
+.plans{background:var(--cream)}
+.plans__grid{display:grid;grid-template-columns:1fr 1.12fr;gap:24px;align-items:center;max-width:980px;margin:0 auto}
+.plan{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(28px,3.5vw,40px);position:relative}
+.plan--full{border:2px solid var(--gold);box-shadow:var(--shadow);padding-top:clamp(40px,4.5vw,52px)}
+.plan__badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font:600 .74rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border-radius:999px;white-space:nowrap}
+.plan h3{font-size:1.55rem}
+.plan__sub{color:var(--ink-soft);font-size:.93rem;margin-top:4px}
+.plan__price{display:flex;align-items:baseline;gap:8px;margin:22px 0 4px;font-family:var(--serif)}
+.plan__price b{font-size:3.2rem;font-weight:600;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.plan__price span{font-size:1.4rem;color:var(--ink-soft)}
+.plan__once{font-size:.85rem;color:var(--ink-soft);margin-bottom:24px}
+.plan ul{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:11px}
+.plan li{display:flex;gap:10px;font-size:.95rem}
+.plan li svg{flex:none;width:19px;height:19px;margin-top:3px;color:var(--green)}
+.plan li.gift svg{color:var(--gold)}
+.plan li.off{color:#A99A85}
+.plan li.off svg{color:#C9BBA4}
+.plan__sep{font:600 .74rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin:6px 0 2px}
+.plan .btn{width:100%}
+.plan--basic .btn{background:var(--navy)}
+.plan--basic .btn:hover{background:var(--navy-deep)}
+.pay-note{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin-top:30px;font-size:.88rem;color:var(--ink-soft)}
+.pay-note span{display:inline-flex;align-items:center;gap:7px}
+.pay-note svg{width:16px;height:16px;color:var(--green)}
+
+/* Bónus */
+.bonus__list{display:grid;gap:clamp(18px,2.4vw,26px);grid-template-columns:repeat(6,1fr)}
+.bonus{grid-column:span 2;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.bonus:nth-child(4),.bonus:nth-child(5){grid-column:span 3}
+.bonus__img{background:var(--sand);padding:24px 22px 0;display:flex;justify-content:center;align-items:flex-start;height:240px;overflow:hidden}
+.bonus__img img{width:64%;max-width:220px;border-radius:4px 4px 0 0;box-shadow:0 6px 18px -6px rgba(60,40,15,.35);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.bonus:nth-child(4) .bonus__img img,.bonus:nth-child(5) .bonus__img img{width:44%}
+.bonus:hover .bonus__img img{transform:translateY(-6px) rotate(-1deg)}
+.bonus__body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.bonus__tag{font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.bonus p{color:var(--ink-soft);font-size:.94rem}
+.bonus__inc{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:7px;font:500 .8rem var(--sans);color:var(--green-deep)}
+.bonus__inc svg{width:15px;height:15px}
+
+/* Para quem */
+.who__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.who__img{position:relative}
+.who__img img{border-radius:8px;box-shadow:var(--shadow)}
+.who__list{display:grid;gap:26px;margin-top:30px}
+.who__list div{padding-left:22px;border-left:1px solid var(--gold)}
+.who__list h3{font-size:1.18rem;margin-bottom:4px}
+.who__list p{color:var(--ink-soft);font-size:.95rem}
+.license{margin-top:30px;display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-soft)}
+.license svg{width:16px;height:16px;color:var(--gold)}
+
+/* Garantia */
+.guarantee{background:var(--cream)}
+.seal-row{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,56px);align-items:center;max-width:860px;margin:0 auto}
+.seal{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;text-align:center;background:#fff;border:1px solid var(--line);box-shadow:inset 0 0 0 8px #fff,inset 0 0 0 9px var(--gold),var(--shadow)}
+.seal b{display:block;font:600 3.2rem/1 var(--serif);color:var(--gold-ink)}
+.seal span{font:600 .7rem/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.seal-row .lead{margin:14px 0 26px}
+
+/* FAQ */
+.faq__list{max-width:820px;margin:0 auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 2px;font:500 1.08rem/1.4 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:transform .3s cubic-bezier(.16,1,.3,1),background .2s}
+.faq summary .pm svg{width:14px;height:14px}
+.faq details[open] summary .pm{transform:rotate(45deg);background:var(--sand)}
+.faq summary:hover .pm{background:var(--sand)}
+.faq .ans{padding:0 2px 24px;color:var(--ink-soft);max-width:68ch}
+
+/* Fecho */
+.closing{background:var(--navy-deep);color:#F3E9D2;text-align:center;position:relative;overflow:hidden}
+.closing h2{color:#fff;font-size:clamp(2rem,1.3rem + 3vw,3.4rem)}
+.closing h2 em{color:#E4C88F;font-style:italic}
+.closing .lead{color:#CFC5B2;margin:18px auto 34px}
+.closing__img{width:min(240px,60vw);margin:0 auto 34px;border-radius:6px;box-shadow:0 30px 50px -20px rgba(0,0,0,.7);transform:rotate(-2deg)}
+
+/* Rodapé */
+footer{background:#14203A;color:#A9B0BF;font-size:.85rem;padding:40px 0 120px}
+footer .wrap{display:grid;gap:12px}
+footer .brand b{color:#fff}
+footer .brand small{color:#C9A86C}
+
+/* Barra fixa */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 10px 10px 20px;border-radius:999px;background:rgba(27,42,68,.96);color:#F3E9D2;box-shadow:0 18px 40px -12px rgba(0,0,0,.55);transform:translateY(140%);transition:transform .5s cubic-bezier(.16,1,.3,1);max-width:620px;margin:0 auto}
+.sticky.show{transform:none}
+.sticky p{font-size:.85rem;line-height:1.25}
+.sticky p b{display:block;font:600 1rem var(--serif);color:#fff}
+.sticky .btn{min-height:46px;padding:0 20px;font-size:.8rem;flex:none}
+
+/* Diálogos */
+dialog{border:0;padding:0;border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:0 40px 80px -20px rgba(0,0,0,.6);max-width:min(560px,calc(100vw - 32px));width:100%}
+dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
+.x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 10px -4px rgba(0,0,0,.3);z-index:2}
+.x svg{width:16px;height:16px}
+.up{padding:38px clamp(22px,5vw,40px) 30px;text-align:center;position:relative}
+.up h2{font-size:clamp(1.6rem,1.2rem + 2vw,2.2rem)}
+.up .lead{margin:12px auto 22px;font-size:1rem}
+.up__covers{display:flex;justify-content:center;gap:8px;margin-bottom:22px}
+.up__covers img{width:18%;border-radius:3px;box-shadow:0 8px 16px -8px rgba(60,40,15,.5)}
+.up__covers img:nth-child(odd){transform:translateY(6px)}
+.up__decline{display:inline-block;margin-top:16px;font-size:.88rem;color:var(--ink-soft);background:none;border:0;cursor:pointer;text-decoration:underline;font-family:var(--sans)}
+.up__decline:hover{color:var(--ink)}
+.lb{max-width:min(760px,calc(100vw - 24px));background:transparent;box-shadow:none}
+.lb img{border-radius:6px;max-height:88vh;width:auto;margin:0 auto}
+
+/* Responsivo */
+@media (max-width:960px){
+  .hero__grid,.anatomy__grid,.who__grid{grid-template-columns:1fr}
+  .stage{margin:10px auto 0;max-width:480px}
+  .anatomy__grid .page-zoom{max-width:520px;margin:0 auto}
+  .who__img{max-width:420px;margin:0 auto}
+  .bonus__list{grid-template-columns:1fr 1fr}
+  .bonus,.bonus:nth-child(4),.bonus:nth-child(5){grid-column:span 1}
+  .bonus:nth-child(5){grid-column:span 2}
+  .bonus:nth-child(4) .bonus__img img,.bonus:nth-child(5) .bonus__img img{width:64%}
+  .bonus:nth-child(5) .bonus__img img{width:34%}
+}
+@media (max-width:760px){
+  .vs,.plans__grid{grid-template-columns:1fr}
+  .plan--full{order:-1}
+  .steps{grid-template-columns:1fr;gap:28px;max-width:360px;margin:0 auto}
+  .steps li{display:grid;grid-template-columns:62px 1fr;gap:18px;text-align:left;padding:0}
+  .steps li+li::before{display:none}
+  .steps .ico{margin:0}
+  .seal-row{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .seal-row .lead{margin-left:auto;margin-right:auto}
+  .top a.link{display:none}
+}
+@media (max-width:560px){
+  .bonus__list{grid-template-columns:1fr}
+  .bonus:nth-child(5){grid-column:span 1}
+  .bonus:nth-child(5) .bonus__img img{width:64%}
+  .stage__tag{right:0;bottom:6%;max-width:150px;padding:10px 12px}
+  .hero__cta .btn{width:100%}
+  .sticky p span{display:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".14"/><path d="M7.5 12.4l3 3 6-6.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".14"/><path d="M9 9l6 6M15 9l-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><path d="M12 3v18M6.5 8.5h11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M2.5 9h19M12 9v11.5M12 9c-1.6-3.7-6.6-4.6-6.4-1.6C5.7 9 9.6 9 12 9zm0 0c1.6-3.7 6.6-4.6 6.4-1.6C18.3 9 14.4 9 12 9z"/></g></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 8V3.5h10V8"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v6.5H7z"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></g></symbol>
+    <symbol id="i-choose" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4.5" width="16" height="16" rx="2"/><path d="M4 9.5h16M8.5 2.5v4M15.5 2.5v4M8.5 14l2.3 2.3L15.5 12"/></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M3.5 11L12 3.5l8.5 7.5M5.5 9.5V20.5h13V9.5"/><path d="M12 10v7M9.5 12.5h5"/></g></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 018 0v2.5"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6L13 3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8-7.5 9.5-4.3-1.5-7.5-5-7.5-9.5V6L12 3z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/></g></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M6 2.5h8.5l4 4V21.5H6z"/><path d="M14 2.5V7h4.5"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-diamond" viewBox="0 0 10 10"><path d="M5 0l5 5-5 5-5-5z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<div class="ticker" aria-label="Destaques">
+  <div class="ticker__track" aria-hidden="true">
+    <span>5 bónus no Pack Completo</span><span>Acesso imediato</span><span>Pronto a imprimir</span><span>Versão de parede e de mesa</span><span>Garantia de 7 dias</span><span>Pagamento único</span>
+    <span>5 bónus no Pack Completo</span><span>Acesso imediato</span><span>Pronto a imprimir</span><span>Versão de parede e de mesa</span><span>Garantia de 7 dias</span><span>Pagamento único</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#" aria-label="Lar de Fé, início">
+        <img src="assets/logo-lar-de-fe.jpg" alt="" width="52" height="52">
+        <span><b>Lar de Fé</b><small>CATÓLICO</small></span>
+      </a>
+      <a class="link" href="#planos">Ver os planos</a>
+    </div>
+
+    <div class="hero__grid">
+      <div>
+        <h1>Um ano inteiro com Deus, <em>na parede da tua casa.</em></h1>
+        <p class="lead">O Calendário Católico 2027 traz o santo de cada dia, a cor litúrgica, as datas da fé e uma devoção para cada mês. Recebes o ficheiro, imprimes em casa e a tua família reza o ano inteiro de olhos postos no essencial.</p>
+        <ul class="ticks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>365 dias com o santo do dia e a cor que a Igreja usa em cada celebração</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>12 meses ilustrados à mão, cada um com a sua devoção</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Versão de parede (A4) e de mesa (A5) no mesmo pack</span></li>
+        </ul>
+        <div class="hero__cta">
+          <a class="btn" href="#planos">Quero o meu calendário <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="hero__price">desde <b>7,90&nbsp;€</b> · pagamento único</p>
+        </div>
+        <ul class="chips">
+          <li><svg aria-hidden="true"><use href="#i-print"/></svg>Pronto a imprimir</li>
+          <li><svg aria-hidden="true"><use href="#i-file"/></svg>Ficheiro PDF</li>
+          <li><svg aria-hidden="true"><use href="#i-bolt"/></svg>Acesso imediato</li>
+          <li><svg aria-hidden="true"><use href="#i-home"/></svg>Uso familiar</li>
+        </ul>
+      </div>
+
+      <div class="stage" aria-label="Pré-visualização do calendário">
+        <div class="sheet sheet--month"><img src="assets/mes-maio.jpg" alt="Página de maio, Mês de Maria" width="900" height="1273"></div>
+        <div class="sheet sheet--wall"><img src="assets/capa-parede.jpg" alt="Capa do Calendário Católico 2027 com a Sagrada Família" width="900" height="1273" fetchpriority="high"></div>
+        <div class="sheet sheet--desk"><img src="assets/mesa-capa.jpg" alt="Capa da versão de mesa" width="700" height="495"></div>
+        <p class="stage__tag"><b>Parede + mesa</b>as duas versões incluídas</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="compare" id="diferenca">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Menos datas soltas. Mais Deus no dia a dia.</h2>
+      <div class="ornament"><svg aria-hidden="true"><use href="#i-diamond"/></svg></div>
+    </div>
+    <div class="vs">
+      <div class="vs__col vs__plain">
+        <h3>Um calendário comum</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Mostra o dia, mas não o santo que a Igreja celebra</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Dias santos e festas passam sem darmos por isso</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Nada lembra a oração em família</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Fica pendurado, mas não diz nada ao coração</span></li>
+        </ul>
+      </div>
+      <div class="vs__col vs__ours">
+        <h3>O Calendário Católico Lar de Fé</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>O santo de cada dia, escrito no próprio quadrado</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A cor litúrgica de cada celebração, para as crianças aprenderem a ler o ano da Igreja</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Solenidades, festas e domingos em destaque</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Uma devoção por mês, com ilustração e versículo para rezar em casa</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="anatomy" id="por-dentro">
+  <div class="wrap anatomy__grid">
+    <div class="page-zoom">
+      <img src="assets/mes-janeiro.jpg" alt="Página de janeiro de 2027 do calendário de parede" width="900" height="1273" loading="lazy">
+      <span class="pin" style="left:17%;top:15%">1</span>
+      <span class="pin" style="left:88%;top:9.5%">2</span>
+      <span class="pin" style="left:62%;top:28%">3</span>
+      <span class="pin" style="left:37%;top:51%">4</span>
+      <span class="pin" style="left:91%;top:51%">5</span>
+    </div>
+    <div>
+      <div class="sec-head">
+        <h2>Cada mês, uma página para rezar.</h2>
+        <p class="lead">Não é só um calendário bonito. Cada página foi pensada para a família consultar todos os dias.</p>
+      </div>
+      <ol class="legend">
+        <li><div><h3>Ilustração da devoção</h3><p>Uma imagem em aguarela para cada mês, do Menino Jesus em janeiro ao Advento em dezembro.</p></div></li>
+        <li><div><h3>Devoção do mês e versículo</h3><p>Janeiro é o Mês do Santíssimo Nome de Jesus, maio é o Mês de Maria, outubro é o Mês do Rosário.</p></div></li>
+        <li><div><h3>Datas importantes</h3><p>As solenidades e festas do mês reunidas numa lista, para não deixar passar nenhuma.</p></div></li>
+        <li><div><h3>Santo do dia</h3><p>Todos os dias do ano têm o seu santo ou celebração, escrito por extenso.</p></div></li>
+        <li><div><h3>Cor litúrgica e fases da lua</h3><p>Uma bolinha mostra a cor que o padre usa na missa desse dia.</p>
+          <p class="colors"><span><i style="background:var(--green)"></i>Verde</span><span><i style="background:var(--violet)"></i>Roxo</span><span><i style="background:#fff"></i>Branco</span><span><i style="background:var(--red)"></i>Vermelho</span><span><i style="background:var(--rose)"></i>Rosa</span></p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="meses">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Espreita os 12 meses antes de escolher.</h2>
+      <p class="lead">Toca num mês para o ver em tamanho grande.</p>
+    </div>
+    <div class="rail-nav">
+      <button type="button" data-rail="-1" aria-label="Meses anteriores"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button type="button" data-rail="1" aria-label="Meses seguintes"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+    </div>
+    <div class="rail" id="rail" tabindex="0" aria-label="Galeria dos meses">
+      <!-- preenchido por JavaScript -->
+    </div>
+    <p class="gallery__note">A versão de mesa traz os mesmos 12 meses em cartões A5, dois por folha.</p>
+  </div>
+</section>
+
+<section class="how" id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Simples como virar a página.</h2>
+      <div class="ornament"><svg aria-hidden="true"><use href="#i-diamond"/></svg></div>
+    </div>
+    <ol class="steps">
+      <li><span class="ico"><svg aria-hidden="true"><use href="#i-choose"/></svg></span><div><h3>Escolhe</h3><p>O Pack Essencial ou o Pack Completo com os 5 bónus.</p></div></li>
+      <li><span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><div><h3>Recebe</h3><p>Os ficheiros chegam ao teu e-mail logo após o pagamento.</p></div></li>
+      <li><span class="ico"><svg aria-hidden="true"><use href="#i-print"/></svg></span><div><h3>Imprime</h3><p>Em casa ou numa reprografia, em papel A4. Cada ficheiro traz instruções.</p></div></li>
+      <li><span class="ico"><svg aria-hidden="true"><use href="#i-home"/></svg></span><div><h3>Reza</h3><p>Pendura na cozinha, no oratório ou deixa na secretária.</p></div></li>
+    </ol>
+    <p class="steps-note">Não tens impressora? Envia o PDF para uma papelaria ou reprografia: a impressão a cores em bom papel costuma ser barata.</p>
+  </div>
+</section>
+
+<section class="plans" id="planos">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Escolhe o teu calendário.</h2>
+      <p class="lead">Pagamento único, sem mensalidades. Imprime quantas vezes quiseres para a tua família.</p>
+    </div>
+    <div class="plans__grid">
+      <article class="plan plan--basic" aria-labelledby="p1">
+        <h3 id="p1">Pack Essencial</h3>
+        <p class="plan__sub">O calendário, nas duas versões</p>
+        <p class="plan__price"><b>7,90</b><span>€</span></p>
+        <p class="plan__once">Pagamento único · uso familiar</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de parede A4, a cores (capa + 12 meses)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de mesa A5, a cores</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Guia das cores litúrgicas e visão geral do ano</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Oração da Bênção do Lar</li>
+          <li class="off"><svg aria-hidden="true"><use href="#i-x"/></svg>Sem os 5 bónus</li>
+        </ul>
+        <a class="btn" href="#" data-plan="essencial">Quero o Essencial</a>
+      </article>
+
+      <article class="plan plan--full" aria-labelledby="p2">
+        <span class="plan__badge">O mais escolhido</span>
+        <h3 id="p2">Pack Completo</h3>
+        <p class="plan__sub">O calendário e tudo para rezar o ano em família</p>
+        <p class="plan__price"><b>14,90</b><span>€</span></p>
+        <p class="plan__once">Pagamento único · uso familiar</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tudo o que está no Pack Essencial</li>
+          <li class="plan__sep">E ainda 5 bónus</li>
+          <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Novenas do Ano 2027</li>
+          <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Guia do Santo Terço</li>
+          <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Evangelhos dos Domingos 2027</li>
+          <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Santinhos para oferecer</li>
+          <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Calendário a preto e branco</li>
+        </ul>
+        <a class="btn" href="#" data-plan="completo">Quero o Completo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+    <div class="pay-note">
+      <span><svg aria-hidden="true"><use href="#i-lock"/></svg>Pagamento seguro</span>
+      <span><svg aria-hidden="true"><use href="#i-bolt"/></svg>Acesso imediato por e-mail</span>
+      <span><svg aria-hidden="true"><use href="#i-shield"/></svg>Garantia de 7 dias</span>
+    </div>
+  </div>
+</section>
+
+<section class="bonus-sec" id="bonus">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Cinco bónus para rezar o ano todo.</h2>
+      <p class="lead">Incluídos no Pack Completo. Cada um é um PDF pronto a imprimir, com o mesmo cuidado do calendário.</p>
+    </div>
+    <div class="bonus__list">
+      <article class="bonus">
+        <div class="bonus__img"><img src="assets/b-novenas-01.jpg" alt="Capa das Novenas do Ano 2027" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__body">
+          <span class="bonus__tag">Bónus 1</span>
+          <h3>Novenas do Ano 2027</h3>
+          <p>12 novenas com as datas certas de 2027, oração própria e meditação para cada um dos nove dias.</p>
+          <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
+        </div>
+      </article>
+      <article class="bonus">
+        <div class="bonus__img"><img src="assets/b-terco-1.jpg" alt="Capa do Guia do Santo Terço" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__body">
+          <span class="bonus__tag">Bónus 2</span>
+          <h3>Guia do Santo Terço</h3>
+          <p>Passo a passo ilustrado, as orações e os mistérios de cada dia, para rezar sozinho ou em família.</p>
+          <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
+        </div>
+      </article>
+      <article class="bonus">
+        <div class="bonus__img"><img src="assets/b-evangelhos-1.jpg" alt="Capa dos Evangelhos dos Domingos 2027" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__body">
+          <span class="bonus__tag">Bónus 3</span>
+          <h3>Evangelhos dos Domingos 2027</h3>
+          <p>A passagem do Evangelho de cada domingo e dia santo, para ler em família antes da missa.</p>
+          <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
+        </div>
+      </article>
+      <article class="bonus">
+        <div class="bonus__img"><img src="assets/b-santinhos-1.jpg" alt="Capa dos Santinhos para oferecer" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__body">
+          <span class="bonus__tag">Bónus 4</span>
+          <h3>Santinhos para oferecer</h3>
+          <p>8 santos com oração no verso, prontos a imprimir, recortar e oferecer na catequese, num batizado ou dentro de um postal.</p>
+          <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
+        </div>
+      </article>
+      <article class="bonus">
+        <div class="bonus__img"><img src="assets/b-pb-05.jpg" alt="Página de janeiro na versão a preto e branco" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__body">
+          <span class="bonus__tag">Bónus 5</span>
+          <h3>Calendário a preto e branco</h3>
+          <p>A versão que poupa tinta, com as cores litúrgicas em siglas. As crianças podem pintar as ilustrações de cada mês.</p>
+          <span class="bonus__inc"><svg aria-hidden="true"><use href="#i-gift"/></svg>Incluído no Pack Completo</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="who" id="para-quem">
+  <div class="wrap who__grid">
+    <div class="who__img"><img src="assets/santinhos-folha-3.jpg" alt="Folha de santinhos para recortar" width="700" height="990" loading="lazy"></div>
+    <div>
+      <h2>Para a tua casa. E para quem amas.</h2>
+      <p class="lead" style="margin-top:16px">Um presente pequeno no preço e grande no significado. Imprime um para a tua cozinha e outro para oferecer.</p>
+      <div class="who__list">
+        <div><h3>Para as famílias</h3><p>Que querem pôr Deus em primeiro lugar e ensinar os filhos a viver o ano da Igreja.</p></div>
+        <div><h3>Para avós, padrinhos e madrinhas</h3><p>Um presente de Natal com fé, feito com carinho em casa.</p></div>
+        <div><h3>Para catequistas e grupos de oração</h3><p>Para ter sempre à mão o santo do dia, as novenas e o Evangelho de domingo.</p></div>
+      </div>
+      <p class="license"><svg aria-hidden="true"><use href="#i-heart"/></svg>Licença pessoal e familiar: imprime à vontade para a tua casa e para oferecer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee" id="garantia">
+  <div class="wrap seal-row">
+    <div class="seal" aria-hidden="true"><div><b>7</b><span>dias de<br>garantia</span></div></div>
+    <div>
+      <h2>Experimenta com tranquilidade.</h2>
+      <p class="lead">Se por qualquer motivo o calendário não for o que esperavas, escreve-nos nos 7 dias seguintes à compra e devolvemos o teu dinheiro. Sem perguntas.</p>
+      <a class="btn" href="#planos">Quero escolher o meu pack <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="perguntas">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Perguntas frequentes</h2>
+      <div class="ornament"><svg aria-hidden="true"><use href="#i-diamond"/></svg></div>
+    </div>
+    <div class="faq__list">
+      <details><summary>Vou receber um calendário físico em casa?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Não. É um produto digital: recebes os ficheiros PDF por e-mail e imprimes em casa ou numa papelaria. Assim podes começar a usar no próprio dia.</p></details>
+      <details><summary>Como e quando recebo os ficheiros?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Logo após a confirmação do pagamento, enviamos o acesso para o e-mail que indicaste. Se não o encontrares, confirma a pasta de spam ou promoções.</p></details>
+      <details><summary>Que papel devo usar?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">O papel A4 comum funciona, mas o calendário fica mais bonito e dura mais em papel fotográfico mate ou cartolina fina de 150 a 180 g. Na impressora, escolhe "Tamanho real" ou "100%".</p></details>
+      <details><summary>Posso imprimir a preto e branco?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Sim. O Pack Completo inclui uma versão a preto e branco feita para poupar tinta, com as cores litúrgicas indicadas em siglas.</p></details>
+      <details><summary>Como monto o calendário?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">A versão de parede pode ser encadernada com argolas numa reprografia, ou furada em casa e presa com uma fita. A versão de mesa traz dois meses por folha: cortas ao meio e colocas num suporte ou num cavalete. Cada ficheiro tem as instruções na primeira página.</p></details>
+      <details><summary>Qual é a diferença entre os dois packs?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">O Pack Essencial tem o calendário de parede e de mesa. O Pack Completo tem o mesmo calendário e mais 5 bónus: Novenas do Ano, Guia do Santo Terço, Evangelhos dos Domingos, Santinhos para oferecer e a versão a preto e branco.</p></details>
+      <details><summary>O pagamento é mensal?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Não. Pagas uma única vez e os ficheiros ficam teus.</p></details>
+      <details><summary>Posso imprimir mais do que uma cópia?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Sim, para a tua casa e para oferecer a familiares e amigos. Não é permitido revender os ficheiros nem partilhá-los publicamente.</p></details>
+      <details><summary>Consigo ver no telemóvel ou no tablet?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Sim, os PDF abrem em qualquer telemóvel, tablet ou computador. Ainda assim, o calendário foi pensado para ser impresso e ficar à vista de toda a família.</p></details>
+      <details><summary>Quais são as formas de pagamento?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">As formas de pagamento disponíveis aparecem na página de pagamento, antes de confirmares a compra.</p></details>
+      <details><summary>Como funciona a garantia?<span class="pm"><svg aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p class="ans">Tens 7 dias a contar da compra. Se não ficares satisfeito, basta escreveres-nos e devolvemos o valor pago, sem perguntas.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <img class="closing__img" src="assets/capa-parede.jpg" alt="" width="900" height="1273" loading="lazy">
+    <h2>Que 2027 seja o ano em que <em>Deus vem primeiro.</em></h2>
+    <p class="lead">Uma página por mês. Um santo por dia. Uma família a rezar junta.</p>
+    <a class="btn" href="#planos">Quero o meu calendário <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><img src="assets/logo-lar-de-fe.jpg" alt="" width="40" height="40" style="width:40px;height:40px"><span><b>Lar de Fé</b><small>CATÓLICO</small></span></span>
+    <p>© <span id="y">2026</span> Lar de Fé. Produto digital para uso pessoal e familiar.</p>
+    <p>Este site não é afiliado ao Facebook, Instagram ou Google.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <p><b>Calendário Católico 2027</b><span>desde 7,90&nbsp;€ · pagamento único</span></p>
+  <a class="btn" href="#planos" tabindex="-1">Ver os planos</a>
+</div>
+
+<dialog id="upsell" aria-labelledby="up-t">
+  <div class="up">
+    <button class="x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    <h2 id="up-t">Antes de continuares…</h2>
+    <p class="lead">Por mais 7&nbsp;€ levas as Novenas, o Terço, os Evangelhos dos Domingos, os Santinhos e a versão a preto e branco. Cinco livros para rezar o ano inteiro.</p>
+    <div class="up__covers" aria-hidden="true">
+      <img src="assets/b-novenas-01.jpg" alt=""><img src="assets/b-terco-1.jpg" alt=""><img src="assets/b-evangelhos-1.jpg" alt=""><img src="assets/b-santinhos-1.jpg" alt=""><img src="assets/b-pb-05.jpg" alt="">
+    </div>
+    <a class="btn btn--block" href="#" data-plan="completo" data-direct>Sim, quero o Pack Completo · 14,90&nbsp;€</a>
+    <button class="up__decline" type="button" data-plan-decline>Não, obrigado. Quero só o Essencial · 7,90&nbsp;€</button>
+  </div>
+</dialog>
+
+<dialog id="lightbox" class="lb" aria-label="Mês ampliado">
+  <button class="x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  <img id="lb-img" src="" alt="">
+</dialog>
+
+<script>
+/* ------------------------------------------------------------------
+   CONFIGURAÇÃO: coloca aqui os links de pagamento de cada plano.
+   Enquanto estiverem vazios, os botões levam à secção de planos.
+------------------------------------------------------------------- */
+const CHECKOUT = {
+  essencial: "",
+  completo: ""
+};
+
+const MONTHS = [
+  ["janeiro","Janeiro","Mês do Santíssimo Nome de Jesus"],
+  ["fevereiro","Fevereiro","Mês da Sagrada Família"],
+  ["marco","Março","Mês de São José"],
+  ["abril","Abril","Mês da Santíssima Eucaristia"],
+  ["maio","Maio","Mês de Maria"],
+  ["junho","Junho","Mês do Sagrado Coração de Jesus"],
+  ["julho","Julho","Mês do Preciosíssimo Sangue"],
+  ["agosto","Agosto","Mês Vocacional"],
+  ["setembro","Setembro","Mês da Bíblia"],
+  ["outubro","Outubro","Mês do Rosário e das Missões"],
+  ["novembro","Novembro","Mês das Almas"],
+  ["dezembro","Dezembro","Mês do Advento e do Natal"]
+];
+
+const rail = document.getElementById("rail");
+rail.innerHTML = MONTHS.map(([slug, name, dev]) => `
+  <figure class="month">
+    <button type="button" data-zoom="assets/mes-${slug}.jpg" aria-label="Ampliar ${name}">
+      <img src="assets/mes-${slug}.jpg" alt="Página de ${name.toLowerCase()} de 2027" width="900" height="1273" loading="lazy">
+    </button>
+    <figcaption><b>${name}</b><span>${dev}</span></figcaption>
+  </figure>`).join("");
+
+document.querySelectorAll("[data-rail]").forEach(b => b.addEventListener("click", () => {
+  const card = rail.querySelector(".month");
+  const step = card ? card.getBoundingClientRect().width + 22 : 300;
+  rail.scrollBy({ left: step * 2 * Number(b.dataset.rail), behavior: "smooth" });
+}));
+
+const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img");
+rail.addEventListener("click", e => {
+  const b = e.target.closest("[data-zoom]");
+  if (!b) return;
+  lbImg.src = b.dataset.zoom;
+  lbImg.alt = b.getAttribute("aria-label").replace("Ampliar ", "Página de ");
+  lb.showModal();
+});
+
+document.querySelectorAll("dialog").forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d || e.target.closest("[data-close]")) d.close(); });
+});
+
+function go(plan) {
+  const url = CHECKOUT[plan];
+  if (url) { window.location.href = url; return; }
+  document.getElementById("planos").scrollIntoView({ behavior: "smooth" });
+}
+
+const upsell = document.getElementById("upsell");
+document.querySelectorAll("[data-plan]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  const plan = a.dataset.plan;
+  if (plan === "essencial" && !a.hasAttribute("data-direct")) { upsell.showModal(); return; }
+  upsell.close(); go(plan);
+}));
+document.querySelector("[data-plan-decline]").addEventListener("click", () => { upsell.close(); go("essencial"); });
+
+/* Barra fixa: aparece depois do hero e esconde-se nos planos */
+const sticky = document.getElementById("sticky");
+const hero = document.querySelector(".hero"), plans = document.getElementById("planos"), closing = document.querySelector(".closing");
+let pastHero = false, inPlans = false;
+const upd = () => {
+  const on = pastHero && !inPlans;
+  sticky.classList.toggle("show", on);
+  sticky.setAttribute("aria-hidden", String(!on));
+  sticky.querySelector("a").tabIndex = on ? 0 : -1;
+};
+new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; upd(); }).observe(hero);
+const seen = new Set();
+const io = new IntersectionObserver(es => { es.forEach(x => x.isIntersecting ? seen.add(x.target) : seen.delete(x.target)); inPlans = seen.size > 0; upd(); }, { threshold: .15 });
+io.observe(plans); io.observe(closing);
+
+document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
