@@ -164,11 +164,14 @@ section{padding:clamp(72px,9vw,128px) 0}
 .gallery{background:var(--navy-deep);color:#F3E9D2;overflow:hidden}
 .gallery h2{color:#fff}
 .gallery .lead{color:#CFC5B2}
-.rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(220px,26vw,300px);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 20px 28px;margin:0 -20px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;overscroll-behavior-x:contain}
+.rail{display:flex;gap:22px;scroll-padding-inline:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 20px 28px;margin:0 -20px;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;overscroll-behavior-x:contain}
 .rail::-webkit-scrollbar{height:6px}
 .rail::-webkit-scrollbar-thumb{background:var(--gold);border-radius:99px}
 .rail::-webkit-scrollbar-track{background:rgba(255,255,255,.08);border-radius:99px}
-.month{scroll-snap-align:start;margin:0}
+.month{scroll-snap-align:start;margin:0;flex:none}
+.month img{height:clamp(300px,34vw,400px);width:auto;max-width:none}
+.month__tag{display:inline-block;font:600 .68rem/1 var(--sans)!important;letter-spacing:.14em;text-transform:uppercase;color:#E4C88F!important;margin-bottom:6px}
+.month figcaption{max-width:100%}
 .month button{all:unset;cursor:zoom-in;display:block;border-radius:6px;overflow:hidden;box-shadow:0 18px 30px -18px rgba(0,0,0,.8);transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .month button:hover{transform:translateY(-6px)}
 .month button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
@@ -490,17 +493,17 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 <section class="gallery" id="meses">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Espreita os 12 meses antes de escolher.</h2>
-      <p class="lead">Toca num mês para o ver em tamanho grande.</p>
+      <h2>Espreita antes de escolher.</h2>
+      <p class="lead">Páginas reais do calendário de parede, do calendário de mesa e dos bónus. Toca numa página para a ver em tamanho grande.</p>
     </div>
     <div class="rail-nav">
-      <button type="button" data-rail="-1" aria-label="Meses anteriores"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
-      <button type="button" data-rail="1" aria-label="Meses seguintes"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+      <button type="button" data-rail="-1" aria-label="Páginas anteriores"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button type="button" data-rail="1" aria-label="Páginas seguintes"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
     </div>
-    <div class="rail" id="rail" tabindex="0" aria-label="Galeria dos meses">
+    <div class="rail" id="rail" tabindex="0" aria-label="Galeria de páginas">
       <!-- preenchido por JavaScript -->
     </div>
-    <p class="gallery__note">A versão de mesa traz os mesmos 12 meses em cartões A5, dois por folha.</p>
+    <p class="gallery__note">O calendário traz os 12 meses nas duas versões: parede A4 e mesa A5.</p>
   </div>
 </section>
 
@@ -727,34 +730,31 @@ const CHECKOUT = {
   completo: ""
 };
 
-const MONTHS = [
-  ["janeiro","Janeiro","Mês do Santíssimo Nome de Jesus"],
-  ["fevereiro","Fevereiro","Mês da Sagrada Família"],
-  ["marco","Março","Mês de São José"],
-  ["abril","Abril","Mês da Santíssima Eucaristia"],
-  ["maio","Maio","Mês de Maria"],
-  ["junho","Junho","Mês do Sagrado Coração de Jesus"],
-  ["julho","Julho","Mês do Preciosíssimo Sangue"],
-  ["agosto","Agosto","Mês Vocacional"],
-  ["setembro","Setembro","Mês da Bíblia"],
-  ["outubro","Outubro","Mês do Rosário e das Missões"],
-  ["novembro","Novembro","Mês das Almas"],
-  ["dezembro","Dezembro","Mês do Advento e do Natal"]
+const PAGES = [
+  ["mes-janeiro.jpg", 900, 1273, "Parede A4", "Janeiro", "Mês do Santíssimo Nome de Jesus"],
+  ["mes-maio.jpg", 900, 1273, "Parede A4", "Maio", "Mês de Maria"],
+  ["mes-setembro.jpg", 900, 1273, "Parede A4", "Setembro", "Mês da Bíblia"],
+  ["g-mesa-marco.jpg", 1000, 707, "Mesa A5", "Março", "Mês de São José"],
+  ["g-mesa-junho.jpg", 1000, 707, "Mesa A5", "Junho", "Mês do Sagrado Coração de Jesus"],
+  ["g-mesa-dezembro.jpg", 1000, 707, "Mesa A5", "Dezembro", "Mês do Advento e do Natal"],
+  ["g-bonus-novenas.jpg", 900, 1273, "Bónus", "Novenas do Ano", "Os nove dias da Novena a São José"],
+  ["g-bonus-terco.jpg", 900, 1273, "Bónus", "Guia do Santo Terço", "Como rezar o Terço, conta a conta"],
+  ["g-bonus-evangelhos.jpg", 900, 1273, "Bónus", "Evangelhos dos Domingos", "As leituras de janeiro e fevereiro"]
 ];
 
 const rail = document.getElementById("rail");
-rail.innerHTML = MONTHS.map(([slug, name, dev]) => `
+rail.innerHTML = PAGES.map(([file, w, h, tag, title, sub]) => `
   <figure class="month">
-    <button type="button" data-zoom="assets/mes-${slug}.jpg" aria-label="Ampliar ${name}">
-      <img src="assets/mes-${slug}.jpg" alt="Página de ${name.toLowerCase()} de 2027" width="900" height="1273" loading="lazy">
+    <button type="button" data-zoom="assets/${file}" aria-label="Ampliar ${tag}: ${title}">
+      <img src="assets/${file}" alt="${tag}: ${title}" width="${w}" height="${h}" loading="lazy">
     </button>
-    <figcaption><b>${name}</b><span>${dev}</span></figcaption>
+    <figcaption><span class="month__tag">${tag}</span><b>${title}</b><span>${sub}</span></figcaption>
   </figure>`).join("");
 
 document.querySelectorAll("[data-rail]").forEach(b => b.addEventListener("click", () => {
   const card = rail.querySelector(".month");
   const step = card ? card.getBoundingClientRect().width + 22 : 300;
-  rail.scrollBy({ left: step * 2 * Number(b.dataset.rail), behavior: "smooth" });
+  rail.scrollBy({ left: step * Number(b.dataset.rail), behavior: "smooth" });
 }));
 
 const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lb-img");
@@ -762,7 +762,7 @@ rail.addEventListener("click", e => {
   const b = e.target.closest("[data-zoom]");
   if (!b) return;
   lbImg.src = b.dataset.zoom;
-  lbImg.alt = b.getAttribute("aria-label").replace("Ampliar ", "Página de ");
+  lbImg.alt = b.getAttribute("aria-label").replace("Ampliar ", "");
   lb.showModal();
 });
 
