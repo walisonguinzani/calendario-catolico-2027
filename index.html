@@ -191,6 +191,14 @@ section{padding:clamp(72px,9vw,128px) 0}
 .plan__price b{font-size:3.2rem;font-weight:600;line-height:1;font-variant-numeric:lining-nums tabular-nums}
 .plan__price span{font-size:1.4rem;color:var(--ink-soft)}
 .plan__once{font-size:.85rem;color:var(--ink-soft);margin-bottom:24px}
+.plan__thumbs{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 12px 14px;margin:0 0 24px;display:grid;gap:12px;justify-items:center}
+.plan__row{display:flex;justify-content:center;align-items:flex-end;gap:10px;flex-wrap:nowrap}
+.plan__row img{border-radius:3px;background:#fff;box-shadow:0 6px 14px -6px rgba(60,40,15,.45);height:96px;width:auto}
+.plan__row--bonus img{height:70px}
+.plan__row--bonus{gap:7px}
+.plan__thumbs figcaption{font:500 .74rem var(--sans);letter-spacing:.06em;color:var(--ink-soft);text-align:center}
+.plan__thumbs figcaption b{color:var(--gold-ink);font-weight:600}
+@media (max-width:420px){.plan__row img{height:80px}.plan__row--bonus img{height:56px}.plan__row--bonus{gap:5px}}
 .plan ul{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:11px}
 .plan li{display:flex;gap:10px;font-size:.95rem}
 .plan li svg{flex:none;width:19px;height:19px;margin-top:3px;color:var(--green)}
@@ -495,6 +503,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <p class="plan__sub">O calendário, nas duas versões</p>
         <p class="plan__price"><b>7,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
+        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><figcaption>Parede A4 + mesa A5</figcaption></figure>
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de parede A4, a cores (capa + 12 meses)</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de mesa A5, a cores</li>
@@ -511,6 +520,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <p class="plan__sub">O calendário e tudo para rezar o ano em família</p>
         <p class="plan__price"><b>14,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
+        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01.jpg" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1.jpg" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1.jpg" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1.jpg" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05.jpg" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 5 bónus</b></figcaption></figure>
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tudo o que está no Pack Essencial</li>
           <li class="plan__sep">E ainda 5 bónus</li>
