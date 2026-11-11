@@ -26,3 +26,12 @@ Landing page estática (HTML + CSS + JS, sem build) para vender o Calendário Ca
 python3 -m http.server 8000
 # abre http://localhost:8000
 ```
+
+## Medição (pixel)
+
+Coloca o ID do pixel da Meta em `META_PIXEL_ID`, no topo do `<script>` do `index.html`. O pixel só é carregado depois de o visitante clicar em "Permitir medição" no aviso. Clicar num plano envia o evento `InitiateCheckout`.
+
+## Páginas legais
+
+- `privacidade.html`: Política de Privacidade
+- `termos.html`: Termos de Uso
