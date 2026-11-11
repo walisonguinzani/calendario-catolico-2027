@@ -852,6 +852,8 @@ document.querySelectorAll("dialog").forEach(d => {
 });
 
 function go(plan) {
+  /* InitiateCheckout só quando a pessoa segue mesmo para o pagamento de um plano */
+  if (measuring && META_PIXEL_ID) track("InitiateCheckout", { value: plan === "completo" ? 14.90 : 7.90, currency: "EUR" });
   const url = CHECKOUT[plan];
   if (url) { window.location.href = url; return; }
   document.getElementById("planos").scrollIntoView({ behavior: "smooth" });
@@ -927,11 +929,7 @@ const saved = store.get();
 if (saved === "yes") startMeasurement();
 else if (saved !== "no") setTimeout(showConsent, 900);
 
-/* Pixel: evento de checkout ao clicar num plano (só se a medição estiver ativa) */
-document.addEventListener("click", e => {
-  const a = e.target.closest("[data-plan]");
-  if (a && measuring && META_PIXEL_ID) track("InitiateCheckout", { value: a.dataset.plan === "completo" ? 14.90 : 7.90, currency: "EUR" });
-}, true);
+
 
 document.getElementById("y").textContent = new Date().getFullYear();
 </script>
