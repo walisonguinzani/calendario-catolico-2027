@@ -891,11 +891,20 @@ const store = {
   set(v) { try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {} }
 };
 let measuring = false;
+/* Envia o evento ao pixel e à API de Conversões (função /api/meta-evento), com o mesmo ID para não contar duas vezes */
+function track(name, data) {
+  const id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
+  if (window.fbq) fbq("track", name, data || {}, { eventID: id });
+  try {
+    fetch("/api/meta-evento", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event_name: name, event_id: id, event_source_url: location.href, custom_data: data }) }).catch(() => {});
+  } catch (e) {}
+}
 function startMeasurement() {
   if (measuring) return; measuring = true;
   if (META_PIXEL_ID) {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", META_PIXEL_ID); fbq("track", "PageView");
+    fbq("init", META_PIXEL_ID); track("PageView");
   }
   document.dispatchEvent(new CustomEvent("medicao-permitida"));
 }
@@ -921,7 +930,7 @@ else if (saved !== "no") setTimeout(showConsent, 900);
 /* Pixel: evento de checkout ao clicar num plano (só se a medição estiver ativa) */
 document.addEventListener("click", e => {
   const a = e.target.closest("[data-plan]");
-  if (a && measuring && window.fbq) fbq("track", "InitiateCheckout", { value: a.dataset.plan === "completo" ? 14.90 : 7.90, currency: "EUR" });
+  if (a && measuring && META_PIXEL_ID) track("InitiateCheckout", { value: a.dataset.plan === "completo" ? 14.90 : 7.90, currency: "EUR" });
 }, true);
 
 document.getElementById("y").textContent = new Date().getFullYear();

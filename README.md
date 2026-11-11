@@ -35,3 +35,9 @@ Coloca o ID do pixel da Meta em `META_PIXEL_ID`, no topo do `<script>` do `index
 
 - `privacidade.html`: Política de Privacidade
 - `termos.html`: Termos de Uso
+
+## API de Conversões (Vercel)
+
+A função `api/meta-evento.js` envia os mesmos eventos do pixel pelo servidor, com o mesmo `event_id` para a Meta não os contar duas vezes. Só é chamada depois de o visitante permitir a medição.
+
+Na Vercel, em Settings → Environment Variables, cria `META_CAPI_TOKEN` com o token da API de Conversões e faz Redeploy. Opcional: `META_PIXEL_ID` para trocar de pixel sem mexer no código. Nunca ponhas o token no código.
