@@ -319,14 +319,28 @@ dialog{border:0;padding:0;border-radius:18px;background:var(--paper);color:var(-
 dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 .x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 10px -4px rgba(0,0,0,.3);z-index:2}
 .x svg{width:16px;height:16px}
-.up{padding:38px clamp(22px,5vw,40px) 30px;text-align:center;position:relative}
-.up h2{font-size:clamp(1.6rem,1.2rem + 2vw,2.2rem)}
-.up .lead{margin:12px auto 22px;font-size:1rem}
-.up__covers{display:flex;justify-content:center;gap:8px;margin-bottom:22px}
-.up__covers img{width:18%;border-radius:3px;box-shadow:0 8px 16px -8px rgba(60,40,15,.5)}
-.up__covers img:nth-child(odd){transform:translateY(6px)}
-.up__decline{display:inline-block;margin-top:16px;font-size:.88rem;color:var(--ink-soft);background:none;border:0;cursor:pointer;text-decoration:underline;font-family:var(--sans)}
-.up__decline:hover{color:var(--ink)}
+.up{padding:clamp(30px,5vw,40px) clamp(22px,5vw,40px) clamp(24px,4vw,32px);position:relative;max-height:calc(100dvh - 32px);overflow-y:auto}
+.up__kick{font:600 .74rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);margin:0 48px 12px 0}
+.up h2{font-size:clamp(1.9rem,1.4rem + 2vw,2.5rem);font-weight:600}
+.up__q{margin-top:12px;color:var(--ink)}
+.up__pitch{margin-top:12px;color:var(--ink-soft)}
+.up__pitch b{color:var(--ink)}
+.up__box{display:flex;align-items:center;gap:18px;margin:22px 0 18px;padding:16px 18px;border-radius:16px;background:var(--sand)}
+.up__box img{width:78px;flex:none;border-radius:3px;transform:rotate(-3deg);box-shadow:0 10px 18px -8px rgba(60,40,15,.5)}
+.up__box small{display:block;font:600 .74rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.up__box b{display:block;font:600 2.3rem/1.1 var(--serif);font-variant-numeric:lining-nums}
+.up__box span{font-size:.88rem;color:var(--ink-soft)}
+.up__list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:9px}
+.up__list li{display:flex;gap:10px;font-size:.95rem}
+.up__list svg{flex:none;width:19px;height:19px;margin-top:3px;color:var(--green)}
+.up .btn{width:100%}
+.up__decline{display:block;width:100%;margin-top:10px;min-height:52px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-soft);font:400 .92rem var(--sans);cursor:pointer;transition:border-color .2s,color .2s}
+.up__decline:hover{border-color:var(--ink-soft);color:var(--ink)}
+@media (max-width:480px){
+  .up h2{font-size:1.6rem}.up__q,.up__pitch{font-size:.92rem;margin-top:8px}
+  .up__box{margin:14px 0 12px;padding:12px 14px;gap:14px}.up__box img{width:56px}.up__box b{font-size:1.8rem}.up__box span{font-size:.8rem;line-height:1.35;display:block}
+  .up__list{gap:5px;margin-bottom:16px}.up__list li{font-size:.86rem}.up__decline{min-height:46px;font-size:.85rem}
+}
 .lb{max-width:min(760px,calc(100vw - 24px));background:transparent;box-shadow:none}
 .lb img{border-radius:6px;max-height:88vh;width:auto;margin:0 auto}
 
@@ -731,13 +745,24 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 <dialog id="upsell" aria-labelledby="up-t">
   <div class="up">
     <button class="x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    <p class="up__kick">Mais oração. Mais fé em casa!</p>
     <h2 id="up-t">Antes de continuares…</h2>
-    <p class="lead">Por mais 7&nbsp;€ levas as Novenas, o Terço, os Evangelhos dos Domingos, os Santinhos e a versão a preto e branco. Cinco livros para rezar o ano inteiro.</p>
-    <div class="up__covers" aria-hidden="true">
-      <img src="assets/b-novenas-01.jpg" alt=""><img src="assets/b-terco-1.jpg" alt=""><img src="assets/b-evangelhos-1.jpg" alt=""><img src="assets/b-santinhos-1.jpg" alt=""><img src="assets/b-pb-05.jpg" alt="">
+    <p class="up__q">Tens a certeza de que queres ficar só com o Pack Essencial?</p>
+    <p class="up__pitch">Por mais <b>7,00&nbsp;€</b> desbloqueias o Pack Completo: o mesmo calendário e mais 5 bónus para rezar o ano inteiro em família.</p>
+    <div class="up__box">
+      <img src="assets/capa-parede.jpg" alt="" width="78" height="110">
+      <div><small>Pack Completo</small><b>14,90&nbsp;€</b><span>Calendário de parede e de mesa + 5 bónus</span></div>
     </div>
-    <a class="btn btn--block" href="#" data-plan="completo" data-direct>Sim, quero o Pack Completo · 14,90&nbsp;€</a>
-    <button class="up__decline" type="button" data-plan-decline>Não, obrigado. Quero só o Essencial · 7,90&nbsp;€</button>
+    <ul class="up__list">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Inclui tudo o que está no Essencial</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Novenas do Ano 2027, com as datas certas</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Guia do Santo Terço</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Evangelhos dos Domingos 2027</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Santinhos para oferecer</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário a preto e branco, para poupar tinta</li>
+    </ul>
+    <a class="btn" href="#" data-plan="completo" data-direct>Quero o Completo · 14,90&nbsp;€</a>
+    <button class="up__decline" type="button" data-plan-decline>Não, quero só o Pack Essencial · 7,90&nbsp;€</button>
   </div>
 </dialog>
 
