@@ -807,8 +807,8 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 const META_PIXEL_ID = "1556039792956905";
 
 const CHECKOUT = {
-  essencial: "",
-  completo: ""
+  essencial: "https://pay.hotmart.com/F108453421C?off=0n2k6qlo", // 7,90 €
+  completo: "https://pay.hotmart.com/F108453421C?off=2ubyianu"   // 14,90 €
 };
 
 const PAGES = [
@@ -855,7 +855,12 @@ function go(plan) {
   /* InitiateCheckout só quando a pessoa segue mesmo para o pagamento de um plano */
   if (measuring && META_PIXEL_ID) track("InitiateCheckout", { value: plan === "completo" ? 14.90 : 7.90, currency: "EUR" });
   const url = CHECKOUT[plan];
-  if (url) { window.location.href = url; return; }
+  if (url) {
+    /* Passa para o checkout os parâmetros do anúncio (utm_*, src, sck, fbclid…) */
+    const dest = new URL(url);
+    new URLSearchParams(location.search).forEach((v, k) => { if (!dest.searchParams.has(k)) dest.searchParams.set(k, v); });
+    window.location.href = dest.toString(); return;
+  }
   document.getElementById("planos").scrollIntoView({ behavior: "smooth" });
 }
 

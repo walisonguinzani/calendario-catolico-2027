@@ -16,7 +16,7 @@ Landing page estática (HTML + CSS + JS, sem build) para vender o Calendário Ca
    };
    ```
 
-   Enquanto estiverem vazios, os botões levam à secção de planos.
+   Os links da Hotmart já estão preenchidos. Os parâmetros do anúncio (utm_*, src, sck, fbclid) passam para o checkout.
 
 2. Publica em qualquer alojamento estático (Vercel, Netlify, GitHub Pages). Não há passo de build.
 
