@@ -219,6 +219,9 @@ section{padding:clamp(72px,9vw,128px) 0}
 .plan__price{display:flex;align-items:baseline;gap:8px;margin:22px 0 4px;font-family:var(--serif)}
 .plan__price b{font-size:3.2rem;font-weight:600;line-height:1;font-variant-numeric:lining-nums tabular-nums}
 .plan__price span{font-size:1.4rem;color:var(--ink-soft)}
+.plan__was{margin:22px 0 -14px;font:400 .95rem var(--sans);color:var(--ink-soft)}
+.plan__was s,.up__was s{text-decoration-thickness:1.5px;text-decoration-color:#b0412e}
+.up__was{display:block;font:400 .9rem var(--sans);color:var(--ink-soft)}
 .plan__once{font-size:.85rem;color:var(--ink-soft);margin-bottom:24px}
 .plan__thumbs{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 12px 14px;margin:0 0 24px;display:grid;gap:12px;justify-items:center}
 .plan__row{display:flex;justify-content:center;align-items:flex-end;gap:10px;flex-wrap:nowrap}
@@ -352,10 +355,16 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 .up .btn{width:100%}
 .up__decline{display:block;width:100%;margin-top:10px;min-height:52px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-soft);font:400 .92rem var(--sans);cursor:pointer;transition:border-color .2s,color .2s}
 .up__decline:hover{border-color:var(--ink-soft);color:var(--ink)}
+/* Botões sempre visíveis: ficam presos ao fundo do aviso enquanto o resto desliza */
+.up__actions{position:sticky;bottom:calc(-1 * clamp(24px,4vw,32px));margin:0 calc(-1 * clamp(22px,5vw,40px)) calc(-1 * clamp(24px,4vw,32px));padding:12px clamp(22px,5vw,40px) clamp(16px,4vw,24px);background:var(--paper);box-shadow:0 -12px 16px -12px rgba(60,40,15,.25)}
 @media (max-width:480px){
   .up h2{font-size:1.6rem}.up__q,.up__pitch{font-size:.92rem;margin-top:8px}
   .up__box{margin:14px 0 12px;padding:12px 10px 10px;gap:8px}.up__thumbs{gap:4px}.up__thumbs img{height:42px}.up__box b{font-size:1.8rem}.up__box span{font-size:.8rem;line-height:1.35;display:block}
   .up__list{gap:5px;margin-bottom:16px}.up__list li{font-size:.86rem}.up__decline{min-height:46px;font-size:.85rem}
+}
+@media (max-width:480px) and (max-height:760px){
+  .up{padding-top:22px}.up__kick{margin-bottom:6px}.up h2{font-size:1.4rem}.up__q{display:none}
+  .up__box{margin:10px 0}.up__box span:not(.up__was){display:none}.up__list{margin-bottom:6px}.up__list li{font-size:.82rem}
 }
 .lb{max-width:min(760px,calc(100vw - 24px));background:transparent;box-shadow:none}
 .lb img{border-radius:6px;max-height:88vh;width:auto;margin:0 auto}
@@ -605,6 +614,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <span class="plan__badge">O mais escolhido</span>
         <h3 id="p2">Pack Completo</h3>
         <p class="plan__sub">O calendário e tudo para rezar o ano em família</p>
+        <p class="plan__was">de <s>29,90&nbsp;€</s> por</p>
         <p class="plan__price"><b>14,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
         <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01.jpg" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1.jpg" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1.jpg" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1.jpg" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05.jpg" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 5 bónus</b></figcaption></figure>
@@ -775,7 +785,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <div class="up__thumbs" aria-hidden="true">
         <img src="assets/capa-parede.jpg" alt="" width="45" height="64"><img src="assets/mesa-capa.jpg" alt="" width="90" height="64"><img src="assets/b-novenas-01.jpg" alt="" width="45" height="64"><img src="assets/b-terco-1.jpg" alt="" width="45" height="64"><img src="assets/b-evangelhos-1.jpg" alt="" width="45" height="64"><img src="assets/b-santinhos-1.jpg" alt="" width="45" height="64"><img src="assets/b-pb-05.jpg" alt="" width="45" height="64">
       </div>
-      <div class="up__price"><small>Pack Completo</small><b>14,90&nbsp;€</b><span>Calendário de parede e de mesa + 5 bónus</span></div>
+      <div class="up__price"><small>Pack Completo</small><span class="up__was">de <s>29,90&nbsp;€</s> por</span><b>14,90&nbsp;€</b><span>Calendário de parede e de mesa + 5 bónus</span></div>
     </div>
     <ul class="up__list">
       <li><svg aria-hidden="true"><use href="#i-check"/></svg>Inclui tudo o que está no Essencial</li>
@@ -783,10 +793,11 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <li><svg aria-hidden="true"><use href="#i-check"/></svg>Guia do Santo Terço</li>
       <li><svg aria-hidden="true"><use href="#i-check"/></svg>Evangelhos dos Domingos 2027</li>
       <li><svg aria-hidden="true"><use href="#i-check"/></svg>Santinhos para oferecer</li>
-      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário a preto e branco, para poupar tinta</li>
     </ul>
+    <div class="up__actions">
     <a class="btn" href="#" data-plan="completo" data-direct>Quero o Completo · 14,90&nbsp;€</a>
     <button class="up__decline" type="button" data-plan-decline>Não, quero só o Pack Essencial · 7,90&nbsp;€</button>
+    </div>
   </div>
 </dialog>
 
