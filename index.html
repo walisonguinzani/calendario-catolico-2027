@@ -852,8 +852,7 @@ document.querySelectorAll("dialog").forEach(d => {
 });
 
 function go(plan) {
-  /* InitiateCheckout só quando a pessoa segue mesmo para o pagamento de um plano */
-  if (measuring && META_PIXEL_ID) track("InitiateCheckout", { value: plan === "completo" ? 14.90 : 7.90, currency: "EUR" });
+  /* O InitiateCheckout é enviado pelo pixel configurado na Hotmart, já no checkout */
   const url = CHECKOUT[plan];
   if (url) {
     /* Passa para o checkout os parâmetros do anúncio (utm_*, src, sck, fbclid…) */
