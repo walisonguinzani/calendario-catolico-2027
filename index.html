@@ -93,6 +93,18 @@ section{padding:clamp(72px,9vw,128px) 0}
 .hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.3rem);font-weight:500}
 .hero h1 em{font-style:italic;color:var(--gold-ink)}
 .hero .lead{margin-top:22px;font-size:1.12rem}
+.hero-video{display:none;position:relative;margin:22px 0 0;border-radius:16px;overflow:hidden;background:#1d1a18;box-shadow:var(--shadow);aspect-ratio:9/16;max-height:72vh;margin-left:auto;margin-right:auto}
+.hero-video video{width:100%;height:100%;object-fit:cover;display:block}
+.vsl-sound{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:0;border-radius:999px;background:rgba(27,42,68,.88);color:#fff;font:600 .9rem var(--sans);letter-spacing:.04em;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
+.vsl-sound svg{width:22px;height:22px}
+.vsl-sound[hidden]{display:none}
+@media (max-width:960px){
+  .hero-video{display:block}
+  .hero .lead{display:none}
+  .hero .stage{display:none}
+  .ticks{margin-top:22px}
+}
+
 .ticks{list-style:none;padding:0;margin:26px 0 32px;display:grid;gap:12px}
 .ticks li{display:flex;gap:12px;align-items:flex-start}
 .ticks svg{flex:none;width:22px;height:22px;margin-top:2px;color:var(--green)}
@@ -424,6 +436,10 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
     <div class="hero__grid">
       <div>
         <h1>Um ano inteiro com Deus, <em>na parede da tua casa.</em></h1>
+        <figure class="hero-video">
+          <video id="vsl" src="assets/vsl.mp4" poster="assets/vsl-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo de apresentação do Calendário Católico 2027"></video>
+          <button type="button" class="vsl-sound" id="vsl-sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Ativar som</button>
+        </figure>
         <p class="lead">O Calendário Católico 2027 traz o santo de cada dia, a cor litúrgica, as datas da fé e uma devoção para cada mês. Recebes o ficheiro, imprimes em casa e a tua família reza o ano inteiro de olhos postos no essencial.</p>
         <ul class="ticks">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>365 dias com o santo do dia e a cor que a Igreja usa em cada celebração</span></li>
@@ -935,6 +951,13 @@ if (saved === "yes") startMeasurement();
 else if (saved !== "no") setTimeout(showConsent, 900);
 
 
+
+/* Vídeo do topo (telemóvel): começa sem som; o botão reinicia com som */
+const vsl = document.getElementById("vsl"), vslBtn = document.getElementById("vsl-sound");
+if (vsl && vslBtn) {
+  vslBtn.addEventListener("click", () => { vsl.muted = false; vsl.loop = false; vsl.currentTime = 0; vsl.controls = true; vsl.play().catch(() => {}); vslBtn.hidden = true; });
+  if (!matchMedia("(max-width:960px)").matches) { vsl.removeAttribute("autoplay"); vsl.pause(); vsl.preload = "none"; }
+}
 
 document.getElementById("y").textContent = new Date().getFullYear();
 </script>
