@@ -93,15 +93,17 @@ section{padding:clamp(72px,9vw,128px) 0}
 .hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.3rem);font-weight:500}
 .hero h1 em{font-style:italic;color:var(--gold-ink)}
 .hero .lead{margin-top:22px;font-size:1.12rem}
-.hero-video{display:none;position:relative;margin:22px 0 0;border-radius:16px;overflow:hidden;background:#1d1a18;box-shadow:var(--shadow);aspect-ratio:9/16;max-height:72vh;margin-left:auto;margin-right:auto}
+.hero-video{position:relative;margin:0 auto;border-radius:16px;overflow:hidden;background:#1d1a18;box-shadow:var(--shadow);aspect-ratio:9/16;height:min(calc(100vh - 200px),680px);max-width:100%}
 .hero-video video{width:100%;height:100%;object-fit:cover;display:block}
-.vsl-sound{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:0;border-radius:999px;background:rgba(27,42,68,.88);color:#fff;font:600 .9rem var(--sans);letter-spacing:.04em;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
+.vsl-sound{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:0;border-radius:999px;background:rgba(27,42,68,.88);color:#fff;font:600 .9rem var(--sans);letter-spacing:.04em;white-space:nowrap;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
 .vsl-sound svg{width:22px;height:22px}
 .vsl-sound[hidden]{display:none}
+.hero .stage{display:none}
+.hero__media{display:flex;justify-content:center;align-self:start}
 @media (max-width:960px){
-  .hero-video{display:block}
+  .hero__media{display:none}
+  .hero-video{margin-top:20px;height:auto;width:100%;max-height:min(62vh,calc(100vh - 320px));max-width:calc(min(62vh,calc(100vh - 320px)) * 9 / 16)}
   .hero .lead{display:none}
-  .hero .stage{display:none}
   .ticks{margin-top:22px}
 }
 
@@ -457,6 +459,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </ul>
       </div>
 
+      <div class="hero__media" id="hero-media"></div>
       <div class="stage" aria-label="Pré-visualização do calendário">
         <div class="sheet sheet--month"><img src="assets/mes-maio.jpg" alt="Página de maio, Mês de Maria" width="900" height="1273"></div>
         <div class="sheet sheet--wall"><img src="assets/capa-parede.jpg" alt="Capa do Calendário Católico 2027 com a Sagrada Família" width="900" height="1273" fetchpriority="high"></div>
@@ -956,7 +959,10 @@ else if (saved !== "no") setTimeout(showConsent, 900);
 const vsl = document.getElementById("vsl"), vslBtn = document.getElementById("vsl-sound");
 if (vsl && vslBtn) {
   vslBtn.addEventListener("click", () => { vsl.muted = false; vsl.loop = false; vsl.currentTime = 0; vsl.controls = true; vsl.play().catch(() => {}); vslBtn.hidden = true; });
-  if (!matchMedia("(max-width:960px)").matches) { vsl.removeAttribute("autoplay"); vsl.pause(); vsl.preload = "none"; }
+  /* No computador, o vídeo passa para a coluna da direita do topo */
+  const fig = vsl.closest(".hero-video"), home = fig.parentNode, homeNext = fig.nextSibling, media = document.getElementById("hero-media");
+  const place = mq => { if (mq.matches) home.insertBefore(fig, homeNext); else media.appendChild(fig); };
+  const mq = matchMedia("(max-width:960px)"); place(mq); mq.addEventListener("change", place);
 }
 
 document.getElementById("y").textContent = new Date().getFullYear();
