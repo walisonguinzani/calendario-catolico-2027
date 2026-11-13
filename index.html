@@ -963,9 +963,18 @@ function startMeasurement() {
   }
   if (typeof sendViewContent === "function") sendViewContent();
 }
+/* Microsoft Clarity (mapas de calor e gravações), também carregado depois de a página abrir */
+function startClarity() {
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "zd3o8o8gg4");
+}
 /* O pixel só carrega depois de a página abrir, para não atrasar o primeiro ecrã */
 {
-  const go = () => ("requestIdleCallback" in window ? requestIdleCallback(startMeasurement, { timeout: 3000 }) : setTimeout(startMeasurement, 1500));
+  const run = () => { startMeasurement(); startClarity(); };
+  const go = () => ("requestIdleCallback" in window ? requestIdleCallback(run, { timeout: 3000 }) : setTimeout(run, 1500));
   if (document.readyState === "complete") go(); else addEventListener("load", go, { once: true });
 }
 
