@@ -964,6 +964,19 @@ const saved = store.get();
 if (saved === "yes") startMeasurement();
 else if (saved !== "no") setTimeout(showConsent, 900);
 
+/* ViewContent: uma vez por visita, quando a secção dos planos aparece no ecrã (só com medição permitida) */
+let plansSeen = false, vcSent = false;
+function sendViewContent() {
+  if (vcSent || !plansSeen || !measuring) return; vcSent = true;
+  track("ViewContent", { content_name: "Calendário Católico 2027", content_category: "Planos", currency: "EUR", value: 14.90 });
+}
+const plansEl = document.getElementById("planos");
+if (plansEl && "IntersectionObserver" in window) {
+  const vcObs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { plansSeen = true; vcObs.disconnect(); sendViewContent(); } }, { threshold: 0.25 });
+  vcObs.observe(plansEl);
+}
+document.addEventListener("medicao-permitida", sendViewContent);
+
 
 
 /* Vídeo do topo (telemóvel): começa sem som; o botão reinicia com som */
