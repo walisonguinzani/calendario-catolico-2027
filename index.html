@@ -13,7 +13,9 @@
 <link rel="icon" href="assets/logo-lar-de-fe.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Poppins:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Poppins:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="image" href="assets/vsl-capa.webp" fetchpriority="high">
 <style>
 :root{
   --paper:#FBF8F2;
@@ -329,21 +331,21 @@ footer .brand small{color:#C9A86C}
 .sticky .btn{min-height:46px;padding:0 20px;font-size:.8rem;flex:none}
 
 /* Consentimento */
-.consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:560px;margin:0 auto;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:20px 20px 18px;box-shadow:0 24px 50px -16px rgba(30,20,10,.45);transform:translateY(130%);transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:460px;margin:0 auto;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;box-shadow:0 24px 50px -16px rgba(30,20,10,.45);transform:translateY(130%);transition:transform .55s cubic-bezier(.16,1,.3,1)}
 .consent.show{transform:none}
-.consent h2{font-size:1.2rem;margin-bottom:4px}
-.consent p{font-size:.9rem;color:var(--ink-soft)}
-.consent__row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px}
-.consent__more{background:none;border:0;padding:0;margin-right:auto;font:500 .88rem var(--sans);color:var(--navy);text-decoration:underline;text-underline-offset:.2em;cursor:pointer}
-.consent .btn{min-height:44px;padding:0 18px;font-size:.76rem}
-.consent__no{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}
-.consent__no:hover{background:var(--navy);color:#fff;box-shadow:none}
+.consent h2{font-size:1rem;margin-bottom:2px}
+.consent p{font-size:.8rem;line-height:1.5;color:var(--ink-soft)}
+.consent__row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.consent__more{background:none;border:0;padding:0;margin-right:auto;font:500 .78rem var(--sans);color:var(--navy);text-decoration:underline;text-underline-offset:.2em;cursor:pointer}
+.consent .btn{min-height:36px;padding:0 14px;font-size:.68rem;box-shadow:none}
+.consent__no{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1px var(--line)!important;font-weight:500}
+.consent__no:hover{background:var(--cream);color:var(--ink);transform:none}
 body.has-consent .sticky{display:none}
 .privacy{padding:36px clamp(22px,5vw,36px) 28px;position:relative}
 .privacy h2{font-size:1.5rem;margin-bottom:12px}
 .privacy p{color:var(--ink-soft);font-size:.95rem;margin-top:10px}
 .privacy .consent__row{margin-top:22px}
-@media (max-width:480px){.consent__more{width:100%;margin-bottom:2px}.consent .btn{flex:1}}
+@media (max-width:480px){.consent{left:10px;right:10px;bottom:10px}.consent__more{order:3;width:100%;text-align:center}.consent .btn{flex:1;padding:0 10px}}
 
 /* Diálogos */
 dialog{border:0;padding:0;border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:0 40px 80px -20px rgba(0,0,0,.6);max-width:min(560px,calc(100vw - 32px));width:100%}
@@ -452,7 +454,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
   <div class="wrap">
     <div class="top">
       <a class="brand" href="#" aria-label="Lar de Fé, início">
-        <img src="assets/logo-lar-de-fe.jpg" alt="" width="52" height="52">
+        <img src="assets/logo-lar-de-fe-t.webp" alt="" width="52" height="52">
         <span><b>Lar de Fé</b><small>CATÓLICO</small></span>
       </a>
       <a class="link" href="#planos">Ver os planos</a>
@@ -462,7 +464,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <div>
         <h1>Um ano inteiro com Deus, <em>na parede da tua casa.</em></h1>
         <figure class="hero-video">
-          <video id="vsl" src="assets/vsl.mp4" poster="assets/vsl-capa.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo de apresentação do Calendário Católico 2027"></video>
+          <video id="vsl" data-src="assets/vsl.mp4" poster="assets/vsl-capa.webp" muted loop playsinline preload="none" aria-label="Vídeo de apresentação do Calendário Católico 2027"></video>
           <button type="button" class="vsl-sound" id="vsl-sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Ativar som</button>
         </figure>
         <p class="lead">O Calendário Católico 2027 traz o santo de cada dia, a cor litúrgica, as datas da fé e uma devoção para cada mês. Recebes o ficheiro, imprimes em casa e a tua família reza o ano inteiro de olhos postos no essencial.</p>
@@ -483,12 +485,6 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       </div>
 
       <div class="hero__media" id="hero-media"></div>
-      <div class="stage" aria-label="Pré-visualização do calendário">
-        <div class="sheet sheet--month"><img src="assets/mes-maio.jpg" alt="Página de maio, Mês de Maria" width="900" height="1273"></div>
-        <div class="sheet sheet--wall"><img src="assets/capa-parede.jpg" alt="Capa do Calendário Católico 2027 com a Sagrada Família" width="900" height="1273" fetchpriority="high"></div>
-        <div class="sheet sheet--desk"><img src="assets/mesa-capa.jpg" alt="Capa da versão de mesa" width="700" height="495"></div>
-        <p class="stage__tag"><b>Parede + mesa</b>as duas versões incluídas</p>
-      </div>
     </div>
   </div>
 </header>
@@ -531,11 +527,11 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <p class="lead">Imprime a versão de mesa, monta-a num suporte e deixa-a onde a família passa: na secretária, na cozinha ou no oratório. A cada mês, basta virar a página.</p>
     </div>
     <figure class="scene__a">
-      <img src="assets/mockup-mesa-janeiro.jpg" alt="Calendário de mesa aberto em janeiro, sobre uma cómoda com uma Bíblia, um terço e flores" width="1237" height="864" loading="lazy">
+      <img src="assets/mockup-mesa-janeiro.webp" alt="Calendário de mesa aberto em janeiro, sobre uma cómoda com uma Bíblia, um terço e flores" width="1237" height="864" loading="lazy">
       <figcaption>Janeiro, Mês do Santíssimo Nome de Jesus.</figcaption>
     </figure>
     <figure class="scene__b">
-      <img src="assets/mockup-mesa-capa.jpg" alt="Capa do calendário de mesa com a Sagrada Família, junto de uma vela e de um terço" width="1239" height="864" loading="lazy">
+      <img src="assets/mockup-mesa-capa.webp" alt="Capa do calendário de mesa com a Sagrada Família, junto de uma vela e de um terço" width="1239" height="864" loading="lazy">
       <figcaption>A capa com a Sagrada Família.</figcaption>
     </figure>
   </div>
@@ -544,7 +540,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 <section class="anatomy" id="por-dentro">
   <div class="wrap anatomy__grid">
     <div class="page-zoom">
-      <img src="assets/mes-janeiro.jpg" alt="Página de janeiro de 2027 do calendário de parede" width="900" height="1273" loading="lazy">
+      <img src="assets/mes-janeiro.webp" alt="Página de janeiro de 2027 do calendário de parede" width="900" height="1273" loading="lazy">
       <span class="pin" style="left:17%;top:15%">1</span>
       <span class="pin" style="left:88%;top:9.5%">2</span>
       <span class="pin" style="left:62%;top:28%">3</span>
@@ -629,7 +625,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <p class="plan__sub">O calendário, nas duas versões</p>
         <p class="plan__price"><b>7,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
-        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><figcaption>Parede A4 + mesa A5</figcaption></figure>
+        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede-t.webp" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa-t.webp" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><figcaption>Parede A4 + mesa A5</figcaption></figure>
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de parede A4, a cores (capa + 12 meses)</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Calendário de mesa A5, a cores</li>
@@ -647,7 +643,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <p class="plan__was">de <s>29,90&nbsp;€</s> por</p>
         <p class="plan__price"><b>14,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
-        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede.jpg" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa.jpg" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01.jpg" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1.jpg" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1.jpg" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1.jpg" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05.jpg" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 5 bónus</b></figcaption></figure>
+        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede-t.webp" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa-t.webp" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01-t.webp" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1-t.webp" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1-t.webp" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1-t.webp" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05-t.webp" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 5 bónus</b></figcaption></figure>
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tudo o que está no Pack Essencial</li>
           <li class="plan__sep">E ainda 5 bónus</li>
@@ -676,7 +672,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
     </div>
     <div class="bonus__list">
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-novenas-01.jpg" alt="Capa das Novenas do Ano 2027" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-novenas-01.webp" alt="Capa das Novenas do Ano 2027" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 1</span>
           <h3>Novenas do Ano 2027</h3>
@@ -685,7 +681,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-terco-1.jpg" alt="Capa do Guia do Santo Terço" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-terco-1.webp" alt="Capa do Guia do Santo Terço" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 2</span>
           <h3>Guia do Santo Terço</h3>
@@ -694,7 +690,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-evangelhos-1.jpg" alt="Capa dos Evangelhos dos Domingos 2027" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-evangelhos-1.webp" alt="Capa dos Evangelhos dos Domingos 2027" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 3</span>
           <h3>Evangelhos dos Domingos 2027</h3>
@@ -703,7 +699,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-santinhos-1.jpg" alt="Capa dos Santinhos para oferecer" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-santinhos-1.webp" alt="Capa dos Santinhos para oferecer" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 4</span>
           <h3>Santinhos para oferecer</h3>
@@ -712,7 +708,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-pb-05.jpg" alt="Página de janeiro na versão a preto e branco" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-pb-05.webp" alt="Página de janeiro na versão a preto e branco" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 5</span>
           <h3>Calendário a preto e branco</h3>
@@ -726,7 +722,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <section class="who" id="para-quem">
   <div class="wrap who__grid">
-    <div class="who__img"><img src="assets/santinhos-folha-3.jpg" alt="Folha de santinhos para recortar" width="700" height="990" loading="lazy"></div>
+    <div class="who__img"><img src="assets/santinhos-folha-3.webp" alt="Folha de santinhos para recortar" width="700" height="990" loading="lazy"></div>
     <div>
       <h2>Para a tua casa. E para quem amas.</h2>
       <p class="lead" style="margin-top:16px">Um presente pequeno no preço e grande no significado. Imprime um para a tua cozinha e outro para oferecer.</p>
@@ -776,7 +772,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <section class="closing">
   <div class="wrap">
-    <img class="closing__img" src="assets/capa-parede.jpg" alt="" width="900" height="1273" loading="lazy">
+    <img class="closing__img" src="assets/capa-parede.webp" alt="" width="900" height="1273" loading="lazy">
     <h2>Que 2027 seja o ano em que <em>Deus vem primeiro.</em></h2>
     <p class="lead">Uma página por mês. Um santo por dia. Uma família a rezar junta.</p>
     <a class="btn" href="#planos">Quero o meu calendário <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -787,7 +783,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <footer>
   <div class="wrap">
-    <span class="brand"><img src="assets/logo-lar-de-fe.jpg" alt="" width="40" height="40" style="width:40px;height:40px"><span><b>Lar de Fé</b><small>CATÓLICO</small></span></span>
+    <span class="brand"><img src="assets/logo-lar-de-fe-t.webp" alt="" width="40" height="40" style="width:40px;height:40px"><span><b>Lar de Fé</b><small>CATÓLICO</small></span></span>
     <nav class="foot-links" aria-label="Informação legal">
       <a href="privacidade.html">Política de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
@@ -813,7 +809,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
     <p class="up__pitch">Por mais <b>7,00&nbsp;€</b> desbloqueias o Pack Completo: o mesmo calendário e mais 5 bónus para rezar o ano inteiro em família.</p>
     <div class="up__box">
       <div class="up__thumbs" aria-hidden="true">
-        <img src="assets/capa-parede.jpg" alt="" width="45" height="64"><img src="assets/mesa-capa.jpg" alt="" width="90" height="64"><img src="assets/b-novenas-01.jpg" alt="" width="45" height="64"><img src="assets/b-terco-1.jpg" alt="" width="45" height="64"><img src="assets/b-evangelhos-1.jpg" alt="" width="45" height="64"><img src="assets/b-santinhos-1.jpg" alt="" width="45" height="64"><img src="assets/b-pb-05.jpg" alt="" width="45" height="64">
+        <img src="assets/capa-parede-t.webp" alt="" width="45" height="64"><img src="assets/mesa-capa-t.webp" alt="" width="90" height="64"><img src="assets/b-novenas-01-t.webp" alt="" width="45" height="64"><img src="assets/b-terco-1-t.webp" alt="" width="45" height="64"><img src="assets/b-evangelhos-1-t.webp" alt="" width="45" height="64"><img src="assets/b-santinhos-1-t.webp" alt="" width="45" height="64"><img src="assets/b-pb-05-t.webp" alt="" width="45" height="64">
       </div>
       <div class="up__price"><small>Pack Completo</small><span class="up__was">de <s>29,90&nbsp;€</s> por</span><b>14,90&nbsp;€</b><span>Calendário de parede e de mesa + 5 bónus</span></div>
     </div>
@@ -873,15 +869,15 @@ const CHECKOUT = {
 };
 
 const PAGES = [
-  ["mes-janeiro.jpg", 900, 1273, "Parede A4", "Janeiro", "Mês do Santíssimo Nome de Jesus"],
-  ["mes-maio.jpg", 900, 1273, "Parede A4", "Maio", "Mês de Maria"],
-  ["mes-setembro.jpg", 900, 1273, "Parede A4", "Setembro", "Mês da Bíblia"],
-  ["g-mesa-marco.jpg", 1000, 707, "Mesa A5", "Março", "Mês de São José"],
-  ["g-mesa-junho.jpg", 1000, 707, "Mesa A5", "Junho", "Mês do Sagrado Coração de Jesus"],
-  ["g-mesa-outubro.jpg", 1000, 707, "Mesa A5", "Outubro", "Mês do Rosário, com Nossa Senhora de Fátima"],
-  ["g-bonus-novenas.jpg", 900, 1273, "Bónus", "Novenas do Ano", "Os nove dias da Novena a São José"],
-  ["g-bonus-terco.jpg", 900, 1273, "Bónus", "Guia do Santo Terço", "Como rezar o Terço, conta a conta"],
-  ["g-bonus-evangelhos.jpg", 900, 1273, "Bónus", "Evangelhos dos Domingos", "As leituras de janeiro e fevereiro"]
+  ["mes-janeiro.webp", 900, 1273, "Parede A4", "Janeiro", "Mês do Santíssimo Nome de Jesus"],
+  ["mes-maio.webp", 900, 1273, "Parede A4", "Maio", "Mês de Maria"],
+  ["mes-setembro.webp", 900, 1273, "Parede A4", "Setembro", "Mês da Bíblia"],
+  ["g-mesa-marco.webp", 1000, 707, "Mesa A5", "Março", "Mês de São José"],
+  ["g-mesa-junho.webp", 1000, 707, "Mesa A5", "Junho", "Mês do Sagrado Coração de Jesus"],
+  ["g-mesa-outubro.webp", 1000, 707, "Mesa A5", "Outubro", "Mês do Rosário, com Nossa Senhora de Fátima"],
+  ["g-bonus-novenas.webp", 900, 1273, "Bónus", "Novenas do Ano", "Os nove dias da Novena a São José"],
+  ["g-bonus-terco.webp", 900, 1273, "Bónus", "Guia do Santo Terço", "Como rezar o Terço, conta a conta"],
+  ["g-bonus-evangelhos.webp", 900, 1273, "Bónus", "Evangelhos dos Domingos", "As leituras de janeiro e fevereiro"]
 ];
 
 const rail = document.getElementById("rail");
@@ -1012,7 +1008,11 @@ document.addEventListener("medicao-permitida", sendViewContent);
 /* Vídeo do topo (telemóvel): começa sem som; o botão reinicia com som */
 const vsl = document.getElementById("vsl"), vslBtn = document.getElementById("vsl-sound");
 if (vsl && vslBtn) {
-  vslBtn.addEventListener("click", () => { vsl.muted = false; vsl.loop = false; vsl.currentTime = 0; vsl.controls = true; vsl.play().catch(() => {}); vslBtn.hidden = true; });
+  /* O vídeo só começa a descarregar depois de a página aparecer (poupa dados no 4G) */
+  const loadVsl = () => { if (vsl.src) return; vsl.src = vsl.dataset.src; vsl.preload = "auto"; vsl.play().catch(() => {}); };
+  const later = () => ("requestIdleCallback" in window ? requestIdleCallback(loadVsl, { timeout: 2500 }) : setTimeout(loadVsl, 800));
+  if (document.readyState === "complete") later(); else addEventListener("load", later, { once: true });
+  vslBtn.addEventListener("click", () => { loadVsl(); vsl.muted = false; vsl.loop = false; vsl.currentTime = 0; vsl.controls = true; vsl.play().catch(() => {}); vslBtn.hidden = true; });
   /* No computador, o vídeo passa para a coluna da direita do topo */
   const fig = vsl.closest(".hero-video"), home = fig.parentNode, homeNext = fig.nextSibling, media = document.getElementById("hero-media");
   const place = mq => { if (mq.matches) home.insertBefore(fig, homeNext); else media.appendChild(fig); };
