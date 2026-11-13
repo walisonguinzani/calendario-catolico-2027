@@ -331,21 +331,6 @@ footer .brand small{color:#C9A86C}
 .sticky .btn{min-height:46px;padding:0 20px;font-size:.8rem;flex:none}
 
 /* Consentimento */
-.consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:460px;margin:0 auto;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;box-shadow:0 24px 50px -16px rgba(30,20,10,.45);transform:translateY(130%);transition:transform .55s cubic-bezier(.16,1,.3,1)}
-.consent.show{transform:none}
-.consent h2{font-size:1rem;margin-bottom:2px}
-.consent p{font-size:.8rem;line-height:1.5;color:var(--ink-soft)}
-.consent__row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
-.consent__more{background:none;border:0;padding:0;margin-right:auto;font:500 .78rem var(--sans);color:var(--navy);text-decoration:underline;text-underline-offset:.2em;cursor:pointer}
-.consent .btn{min-height:36px;padding:0 14px;font-size:.68rem;box-shadow:none}
-.consent__no{background:transparent;color:var(--ink-soft);box-shadow:inset 0 0 0 1px var(--line)!important;font-weight:500}
-.consent__no:hover{background:var(--cream);color:var(--ink);transform:none}
-body.has-consent .sticky{display:none}
-.privacy{padding:36px clamp(22px,5vw,36px) 28px;position:relative}
-.privacy h2{font-size:1.5rem;margin-bottom:12px}
-.privacy p{color:var(--ink-soft);font-size:.95rem;margin-top:10px}
-.privacy .consent__row{margin-top:22px}
-@media (max-width:480px){.consent{left:10px;right:10px;bottom:10px}.consent__more{order:3;width:100%;text-align:center}.consent .btn{flex:1;padding:0 10px}}
 
 /* Diálogos */
 dialog{border:0;padding:0;border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:0 40px 80px -20px rgba(0,0,0,.6);max-width:min(560px,calc(100vw - 32px));width:100%}
@@ -787,7 +772,6 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
     <nav class="foot-links" aria-label="Informação legal">
       <a href="privacidade.html">Política de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
-      <button type="button" data-consent-open>Preferências de medição</button>
     </nav>
     <p>© <span id="y">2026</span> Lar de Fé · Walison Guinzani · CPF 062.397.019-80. Produto digital para uso pessoal e familiar.</p>
     <p class="foot-legal">Este site não faz parte do site do Facebook nem da Meta Platforms, Inc. Além disso, este site não é endossado pelo Facebook de forma alguma. FACEBOOK e INSTAGRAM são marcas registadas da Meta Platforms, Inc. Este site também não é afiliado à Google.</p>
@@ -827,28 +811,6 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
   </div>
 </dialog>
 
-<div class="consent" id="consent" role="region" aria-labelledby="consent-t" hidden>
-  <h2 id="consent-t">A tua escolha conta.</h2>
-  <p>A medição só é ativada se permitires. Podes recusar e continuar a explorar.</p>
-  <div class="consent__row">
-    <button class="consent__more" type="button" data-consent-more>Saber mais</button>
-    <button class="btn consent__no" type="button" data-consent="no">Recusar medição</button>
-    <button class="btn" type="button" data-consent="yes">Permitir medição</button>
-  </div>
-</div>
-
-<dialog id="privacy" aria-labelledby="privacy-t">
-  <div class="privacy">
-    <button class="x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
-    <h2 id="privacy-t">Sobre a medição</h2>
-    <p>Se permitires, usamos ferramentas de medição (como o pixel da Meta) para saber quantas pessoas visitam a página e de que anúncios vêm. Isto ajuda-nos a mostrar o calendário a quem o pode querer.</p>
-    <p>Se recusares, nenhuma ferramenta de medição é carregada e a página funciona na mesma. Podes mudar de ideias a qualquer momento no link "Preferências de medição", no rodapé. Mais detalhes na <a href="privacidade.html">Política de Privacidade</a>.</p>
-    <div class="consent__row">
-      <button class="btn consent__no" type="button" data-consent="no">Recusar medição</button>
-      <button class="btn" type="button" data-consent="yes">Permitir medição</button>
-    </div>
-  </div>
-</dialog>
 
 <dialog id="lightbox" class="lb" aria-label="Mês ampliado">
   <button class="x" type="button" data-close aria-label="Fechar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
@@ -860,7 +822,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
    CONFIGURAÇÃO: coloca aqui os links de pagamento de cada plano.
    Enquanto estiverem vazios, os botões levam à secção de planos.
 ------------------------------------------------------------------- */
-/* ID do pixel da Meta (Facebook). Só é carregado se o visitante permitir a medição. */
+/* ID do pixel da Meta (Facebook) */
 const META_PIXEL_ID = "1556039792956905";
 
 const CHECKOUT = {
@@ -945,14 +907,7 @@ const io = new IntersectionObserver(es => { es.forEach(x => x.isIntersecting ? s
 io.observe(plans); io.observe(closing);
 
 
-/* Consentimento de medição */
-const CONSENT_KEY = "ldf-consent";
-const consentEl = document.getElementById("consent");
-const privacyDlg = document.getElementById("privacy");
-const store = {
-  get() { try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; } },
-  set(v) { try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {} }
-};
+/* Medição: o pixel da Meta carrega em todas as visitas */
 let measuring = false;
 /* Envia o evento ao pixel e à API de Conversões (função /api/meta-evento), com o mesmo ID para não contar duas vezes */
 function track(name, data) {
@@ -969,28 +924,10 @@ function startMeasurement() {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
     fbq("init", META_PIXEL_ID); track("PageView");
   }
-  document.dispatchEvent(new CustomEvent("medicao-permitida"));
 }
-function showConsent() {
-  consentEl.hidden = false; document.body.classList.add("has-consent");
-  requestAnimationFrame(() => requestAnimationFrame(() => consentEl.classList.add("show")));
-}
-function hideConsent() {
-  consentEl.classList.remove("show"); document.body.classList.remove("has-consent");
-  setTimeout(() => { consentEl.hidden = true; }, 500);
-}
-function decide(v) {
-  store.set(v); hideConsent(); if (privacyDlg.open) privacyDlg.close();
-  if (v === "yes") startMeasurement();
-}
-document.querySelectorAll("[data-consent]").forEach(b => b.addEventListener("click", () => decide(b.dataset.consent)));
-document.querySelector("[data-consent-more]").addEventListener("click", () => privacyDlg.showModal());
-document.querySelector("[data-consent-open]").addEventListener("click", showConsent);
-const saved = store.get();
-if (saved === "yes") startMeasurement();
-else if (saved !== "no") setTimeout(showConsent, 900);
+startMeasurement();
 
-/* ViewContent: uma vez por visita, quando a secção dos planos aparece no ecrã (só com medição permitida) */
+/* ViewContent: uma vez por visita, quando a secção dos planos aparece no ecrã */
 let plansSeen = false, vcSent = false;
 function sendViewContent() {
   if (vcSent || !plansSeen || !measuring) return; vcSent = true;
@@ -1001,7 +938,6 @@ if (plansEl && "IntersectionObserver" in window) {
   const vcObs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { plansSeen = true; vcObs.disconnect(); sendViewContent(); } }, { threshold: 0.25 });
   vcObs.observe(plansEl);
 }
-document.addEventListener("medicao-permitida", sendViewContent);
 
 
 
