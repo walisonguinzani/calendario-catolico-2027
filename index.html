@@ -95,7 +95,7 @@ section{padding:clamp(72px,9vw,128px) 0}
 .hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.3rem);font-weight:500}
 .hero h1 em{font-style:italic;color:var(--gold-ink)}
 .hero .lead{margin-top:22px;font-size:1.12rem}
-.hero-video{position:relative;margin:0 auto;border-radius:16px;overflow:hidden;background:#1d1a18;box-shadow:var(--shadow);aspect-ratio:9/16;height:min(calc(100vh - 200px),680px);max-width:100%}
+.hero-video{position:relative;margin:0 auto;border-radius:16px;overflow:hidden;background:#EDE3D1 url(assets/vsl-capa.webp) center/cover no-repeat;box-shadow:var(--shadow);aspect-ratio:9/16;height:min(calc(100vh - 200px),680px);max-width:100%}
 .hero-video video{width:100%;height:100%;object-fit:cover;display:block}
 .vsl-sound{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:0;border-radius:999px;background:rgba(27,42,68,.88);color:#fff;font:600 .9rem var(--sans);letter-spacing:.04em;white-space:nowrap;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
 .vsl-sound svg{width:22px;height:22px}
@@ -527,11 +527,11 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <p class="lead">Imprime a versão de mesa, monta-a num suporte e deixa-a onde a família passa: na secretária, na cozinha ou no oratório. A cada mês, basta virar a página.</p>
     </div>
     <figure class="scene__a">
-      <img src="assets/mockup-mesa-janeiro.webp" alt="Calendário de mesa aberto em janeiro, sobre uma cómoda com uma Bíblia, um terço e flores" width="1237" height="864" loading="lazy">
+      <img src="assets/mockup-mesa-janeiro.webp" srcset="assets/mockup-mesa-janeiro-m.webp 480w, assets/mockup-mesa-janeiro.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Calendário de mesa aberto em janeiro, sobre uma cómoda com uma Bíblia, um terço e flores" width="1237" height="864" loading="lazy">
       <figcaption>Janeiro, Mês do Santíssimo Nome de Jesus.</figcaption>
     </figure>
     <figure class="scene__b">
-      <img src="assets/mockup-mesa-capa.webp" alt="Capa do calendário de mesa com a Sagrada Família, junto de uma vela e de um terço" width="1239" height="864" loading="lazy">
+      <img src="assets/mockup-mesa-capa.webp" srcset="assets/mockup-mesa-capa-m.webp 480w, assets/mockup-mesa-capa.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Capa do calendário de mesa com a Sagrada Família, junto de uma vela e de um terço" width="1239" height="864" loading="lazy">
       <figcaption>A capa com a Sagrada Família.</figcaption>
     </figure>
   </div>
@@ -540,7 +540,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 <section class="anatomy" id="por-dentro">
   <div class="wrap anatomy__grid">
     <div class="page-zoom">
-      <img src="assets/mes-janeiro.webp" alt="Página de janeiro de 2027 do calendário de parede" width="900" height="1273" loading="lazy">
+      <img src="assets/mes-janeiro.webp" srcset="assets/mes-janeiro-m.webp 480w, assets/mes-janeiro.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Página de janeiro de 2027 do calendário de parede" width="900" height="1273" loading="lazy">
       <span class="pin" style="left:17%;top:15%">1</span>
       <span class="pin" style="left:88%;top:9.5%">2</span>
       <span class="pin" style="left:62%;top:28%">3</span>
@@ -672,7 +672,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
     </div>
     <div class="bonus__list">
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-novenas-01.webp" alt="Capa das Novenas do Ano 2027" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-novenas-01.webp" srcset="assets/b-novenas-01-m.webp 480w, assets/b-novenas-01.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Capa das Novenas do Ano 2027" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 1</span>
           <h3>Novenas do Ano 2027</h3>
@@ -681,7 +681,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-terco-1.webp" alt="Capa do Guia do Santo Terço" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-terco-1.webp" srcset="assets/b-terco-1-m.webp 480w, assets/b-terco-1.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Capa do Guia do Santo Terço" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 2</span>
           <h3>Guia do Santo Terço</h3>
@@ -690,7 +690,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-evangelhos-1.webp" alt="Capa dos Evangelhos dos Domingos 2027" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-evangelhos-1.webp" srcset="assets/b-evangelhos-1-m.webp 480w, assets/b-evangelhos-1.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Capa dos Evangelhos dos Domingos 2027" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 3</span>
           <h3>Evangelhos dos Domingos 2027</h3>
@@ -699,7 +699,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-santinhos-1.webp" alt="Capa dos Santinhos para oferecer" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-santinhos-1.webp" srcset="assets/b-santinhos-1-m.webp 480w, assets/b-santinhos-1.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Capa dos Santinhos para oferecer" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 4</span>
           <h3>Santinhos para oferecer</h3>
@@ -708,7 +708,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         </div>
       </article>
       <article class="bonus">
-        <div class="bonus__img"><img src="assets/b-pb-05.webp" alt="Página de janeiro na versão a preto e branco" width="700" height="990" loading="lazy"></div>
+        <div class="bonus__img"><img src="assets/b-pb-05.webp" srcset="assets/b-pb-05-m.webp 480w, assets/b-pb-05.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Página de janeiro na versão a preto e branco" width="700" height="990" loading="lazy"></div>
         <div class="bonus__body">
           <span class="bonus__tag">Bónus 5</span>
           <h3>Calendário a preto e branco</h3>
@@ -722,7 +722,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <section class="who" id="para-quem">
   <div class="wrap who__grid">
-    <div class="who__img"><img src="assets/santinhos-folha-3.webp" alt="Folha de santinhos para recortar" width="700" height="990" loading="lazy"></div>
+    <div class="who__img"><img src="assets/santinhos-folha-3.webp" srcset="assets/santinhos-folha-3-m.webp 480w, assets/santinhos-folha-3.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="Folha de santinhos para recortar" width="700" height="990" loading="lazy"></div>
     <div>
       <h2>Para a tua casa. E para quem amas.</h2>
       <p class="lead" style="margin-top:16px">Um presente pequeno no preço e grande no significado. Imprime um para a tua cozinha e outro para oferecer.</p>
@@ -772,7 +772,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <section class="closing">
   <div class="wrap">
-    <img class="closing__img" src="assets/capa-parede.webp" alt="" width="900" height="1273" loading="lazy">
+    <img class="closing__img" src="assets/capa-parede.webp" srcset="assets/capa-parede-m.webp 480w, assets/capa-parede.webp 900w" sizes="(max-width:600px) 92vw, 460px" alt="" width="900" height="1273" loading="lazy">
     <h2>Que 2027 seja o ano em que <em>Deus vem primeiro.</em></h2>
     <p class="lead">Uma página por mês. Um santo por dia. Uma família a rezar junta.</p>
     <a class="btn" href="#planos">Quero o meu calendário <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -884,7 +884,7 @@ const rail = document.getElementById("rail");
 rail.innerHTML = PAGES.map(([file, w, h, tag, title, sub]) => `
   <figure class="month">
     <button type="button" data-zoom="assets/${file}" aria-label="Ampliar ${tag}: ${title}">
-      <img src="assets/${file}" alt="${tag}: ${title}" width="${w}" height="${h}" loading="lazy">
+      <img src="assets/${file}" srcset="assets/${file.replace('.webp','-m.webp')} 480w, assets/${file} 900w" sizes="(max-width:600px) 80vw, 360px" alt="${tag}: ${title}" width="${w}" height="${h}" loading="lazy">
     </button>
     <figcaption><span class="month__tag">${tag}</span><b>${title}</b><span>${sub}</span></figcaption>
   </figure>`).join("");
