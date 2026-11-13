@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Poppins:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Poppins:wght@400;500;600&display=swap"></noscript>
-<link rel="preload" as="image" href="assets/vsl-capa.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-produtos.webp" imagesrcset="assets/hero-produtos-m.webp 600w, assets/hero-produtos.webp 1000w" imagesizes="(max-width:960px) 92vw, 560px" fetchpriority="high">
 <style>
 :root{
   --paper:#FBF8F2;
@@ -95,16 +95,13 @@ section{padding:clamp(72px,9vw,128px) 0}
 .hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.3rem);font-weight:500}
 .hero h1 em{font-style:italic;color:var(--gold-ink)}
 .hero .lead{margin-top:22px;font-size:1.12rem}
-.hero-video{position:relative;margin:0 auto;border-radius:16px;overflow:hidden;background:#EDE3D1 url(assets/vsl-capa.webp) center/cover no-repeat;box-shadow:var(--shadow);aspect-ratio:9/16;height:min(calc(100vh - 200px),680px);max-width:100%}
-.hero-video video{width:100%;height:100%;object-fit:cover;display:block}
-.vsl-sound{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:0;border-radius:999px;background:rgba(27,42,68,.88);color:#fff;font:600 .9rem var(--sans);letter-spacing:.04em;white-space:nowrap;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
-.vsl-sound svg{width:22px;height:22px}
-.vsl-sound[hidden]{display:none}
+.hero-video{position:relative;margin:0 auto;aspect-ratio:1000/1150;height:min(calc(100vh - 200px),660px);max-width:100%}
+.hero-video img{width:100%;height:100%;object-fit:contain;display:block}
 .hero .stage{display:none}
 .hero__media{display:flex;justify-content:center;align-self:start}
 @media (max-width:960px){
   .hero__media{display:none}
-  .hero-video{margin-top:20px;height:auto;width:100%;max-height:min(62vh,calc(100vh - 320px));max-width:calc(min(62vh,calc(100vh - 320px)) * 9 / 16)}
+  .hero-video{margin-top:18px;height:auto;width:100%;max-width:min(460px,calc((100vh - 300px) * 1000 / 1150))}
   .hero .lead{display:none}
   .ticks{margin-top:22px}
 }
@@ -449,8 +446,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <div>
         <h1>Um ano inteiro com Deus, <em>na parede da tua casa.</em></h1>
         <figure class="hero-video">
-          <video id="vsl" data-src="assets/vsl.mp4" poster="assets/vsl-capa.webp" muted loop playsinline preload="none" aria-label="Vídeo de apresentação do Calendário Católico 2027"></video>
-          <button type="button" class="vsl-sound" id="vsl-sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Ativar som</button>
+          <img src="assets/hero-produtos.webp" srcset="assets/hero-produtos-m.webp 600w, assets/hero-produtos.webp 1000w" sizes="(max-width:960px) 92vw, 560px" width="1000" height="1150" fetchpriority="high" alt="Tudo o que recebes: calendário de parede com os 12 meses, calendário de mesa e os 5 bónus (Novenas, Santo Terço, Evangelhos dos Domingos, Santinhos e versão a preto e branco)">
         </figure>
         <p class="lead">O Calendário Católico 2027 traz o santo de cada dia, a cor litúrgica, as datas da fé e uma devoção para cada mês. Recebes o ficheiro, imprimes em casa e a tua família reza o ano inteiro de olhos postos no essencial.</p>
         <ul class="ticks">
@@ -941,18 +937,14 @@ if (plansEl && "IntersectionObserver" in window) {
 
 
 
-/* Vídeo do topo (telemóvel): começa sem som; o botão reinicia com som */
-const vsl = document.getElementById("vsl"), vslBtn = document.getElementById("vsl-sound");
-if (vsl && vslBtn) {
-  /* O vídeo só começa a descarregar depois de a página aparecer (poupa dados no 4G) */
-  const loadVsl = () => { if (vsl.src) return; vsl.src = vsl.dataset.src; vsl.preload = "auto"; vsl.play().catch(() => {}); };
-  const later = () => ("requestIdleCallback" in window ? requestIdleCallback(loadVsl, { timeout: 2500 }) : setTimeout(loadVsl, 800));
-  if (document.readyState === "complete") later(); else addEventListener("load", later, { once: true });
-  vslBtn.addEventListener("click", () => { loadVsl(); vsl.muted = false; vsl.loop = false; vsl.currentTime = 0; vsl.controls = true; vsl.play().catch(() => {}); vslBtn.hidden = true; });
-  /* No computador, o vídeo passa para a coluna da direita do topo */
-  const fig = vsl.closest(".hero-video"), home = fig.parentNode, homeNext = fig.nextSibling, media = document.getElementById("hero-media");
-  const place = mq => { if (mq.matches) home.insertBefore(fig, homeNext); else media.appendChild(fig); };
-  const mq = matchMedia("(max-width:960px)"); place(mq); mq.addEventListener("change", place);
+/* No computador, a imagem dos produtos passa para a coluna da direita do topo */
+{
+  const fig = document.querySelector(".hero-video"), media = document.getElementById("hero-media");
+  if (fig && media) {
+    const home = fig.parentNode, homeNext = fig.nextSibling;
+    const place = mq => { if (mq.matches) home.insertBefore(fig, homeNext); else media.appendChild(fig); };
+    const mq = matchMedia("(max-width:960px)"); place(mq); mq.addEventListener("change", place);
+  }
 }
 
 document.getElementById("y").textContent = new Date().getFullYear();
