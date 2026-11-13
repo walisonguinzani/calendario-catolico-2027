@@ -106,13 +106,14 @@ section{padding:clamp(72px,9vw,128px) 0}
   .ticks{margin-top:22px}
 }
 
-.ticks{list-style:none;padding:0;margin:26px 0 32px;display:grid;gap:12px}
+.ticks{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.hero .hero__cta{margin-top:26px}
 .ticks li{display:flex;gap:12px;align-items:flex-start}
 .ticks svg{flex:none;width:22px;height:22px;margin-top:2px;color:var(--green)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
 .hero__price{font:400 .95rem var(--sans);color:var(--ink-soft)}
 .hero__price b{font:600 1.35rem var(--serif);color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;padding:0;list-style:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;padding:0;list-style:none}
 .chips li{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font:500 .8rem var(--sans);color:var(--ink-soft)}
 .chips svg{width:15px;height:15px;color:var(--gold)}
 
@@ -164,10 +165,28 @@ section{padding:clamp(72px,9vw,128px) 0}
 .page-zoom{position:relative;border-radius:8px;box-shadow:var(--shadow);background:#fff}
 .page-zoom img{border-radius:8px}
 .pin{position:absolute;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font:600 .85rem/30px var(--sans);text-align:center;box-shadow:0 0 0 4px rgba(255,255,255,.85),0 6px 14px -4px rgba(0,0,0,.4);transform:translate(-50%,-50%)}
-.legend{list-style:none;margin:0;padding:0;display:grid;gap:22px;counter-reset:l}
-.legend li{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:start}
-.legend li::before{counter-increment:l;content:counter(l);width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font:600 .85rem/30px var(--sans);text-align:center}
-.legend h3{font-size:1.15rem;margin-bottom:4px}
+.tap-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 14px;font:500 .9rem var(--sans);color:var(--gold-ink)}
+.tap-hint svg{width:24px;height:24px;animation:tap 1.6s ease-in-out infinite}
+@keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+button.pin{border:0;padding:0;cursor:pointer;transition:background .2s,transform .2s}
+.pin::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--gold);opacity:0;animation:ping 2s ease-out infinite}
+.anatomy.touched .pin::after{animation:none}
+@keyframes ping{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.pin.on{background:var(--gold);transform:translate(-50%,-50%) scale(1.18)}
+.pin:hover{background:var(--gold)}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:l}
+.legend li{display:grid;grid-template-columns:30px 1fr;column-gap:16px;align-items:start;padding:10px 12px;border-radius:12px;transition:background .25s}
+.legend li.open{background:#fff;box-shadow:0 10px 24px -16px rgba(60,40,15,.45)}
+.legend li.open::before{background:var(--gold)}
+.lg-h{grid-column:2;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:30px;background:none;border:0;padding:0;text-align:left;cursor:pointer;color:inherit}
+.lg-h svg{flex:none;width:18px;height:18px;color:var(--gold-ink);transition:transform .25s}
+.legend li.open .lg-h svg{transform:rotate(45deg)}
+.lg-b{grid-column:2;display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.lg-b>div{overflow:hidden}
+.legend li.open .lg-b{grid-template-rows:1fr}
+.legend li.open .lg-b>div{padding-top:6px}
+.legend li::before{grid-row:1/span 2;transition:background .25s;counter-increment:l;content:counter(l);width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font:600 .85rem/30px var(--sans);text-align:center}
+.legend h3{font-size:1.1rem;margin:0}
 .legend p{color:var(--ink-soft);font-size:.95rem}
 .colors{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
 .colors span{display:inline-flex;align-items:center;gap:6px}
@@ -236,6 +255,18 @@ section{padding:clamp(72px,9vw,128px) 0}
 .plan__was s,.up__was s{text-decoration-thickness:1.5px;text-decoration-color:#b0412e}
 .up__was{display:block;font:400 .9rem var(--sans);color:var(--ink-soft)}
 .plan__once{font-size:.85rem;color:var(--ink-soft);margin-bottom:24px}
+.plan__trust{margin-top:14px;display:grid;justify-items:center;gap:8px}
+.pay{display:flex;align-items:center;justify-content:center;gap:8px;margin:0}
+.pay span{display:inline-flex;align-items:center;justify-content:center;height:26px;min-width:44px;padding:0 8px;border-radius:5px;background:#fff;border:1px solid var(--line)}
+.pay__visa{font:italic 800 .82rem/1 var(--sans);letter-spacing:.02em;color:#1A1F71}
+.pay__mc i{width:14px;height:14px;border-radius:50%;background:#EB001B;display:block}
+.pay__mc i+i{background:#F79E1B;margin-left:-6px;mix-blend-mode:multiply}
+.pay__mbway{font:700 .72rem/1 var(--sans);color:#D6001C;gap:2px}
+.pay__mbway b{color:#2C2420;font-weight:700}
+.guar{display:flex;align-items:center;gap:6px;margin:0;font:500 .8rem var(--sans);color:var(--ink-soft)}
+.guar svg{width:16px;height:16px;color:var(--green)}
+.plan__mock{margin:0 auto 22px;max-width:300px}
+.plan__mock img{width:100%;height:auto}
 .plan__thumbs{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:16px 12px 14px;margin:0 0 24px;display:grid;gap:12px;justify-items:center}
 .plan__row{display:flex;justify-content:center;align-items:flex-end;gap:10px;flex-wrap:nowrap}
 .plan__row img{border-radius:3px;background:#fff;box-shadow:0 6px 14px -6px rgba(60,40,15,.45);height:96px;width:auto}
@@ -371,7 +402,10 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 @media (max-width:960px){
   .hero__grid,.anatomy__grid,.who__grid{grid-template-columns:1fr}
   .stage{margin:10px auto 0;max-width:480px}
-  .anatomy__grid .page-zoom{max-width:520px;margin:0 auto}
+  .anatomy__grid .anat-fig{max-width:520px;margin:0 auto;width:100%}
+  .anatomy__grid>div:last-child{display:contents}
+  .anatomy__grid .sec-head{order:-1;margin-bottom:0}
+  .anatomy__grid{row-gap:24px}
   .who__img{max-width:420px;margin:0 auto}
   .bonus__list{grid-template-columns:1fr 1fr}
   .bonus,.bonus:nth-child(4),.bonus:nth-child(5){grid-column:span 1}
@@ -449,17 +483,16 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
           <img src="assets/topo-produtos-800.webp" srcset="assets/topo-produtos-500.webp 500w, assets/topo-produtos-700.webp 700w, assets/topo-produtos-800.webp 800w" sizes="(max-width:960px) min(92vw, 460px), 580px" width="800" height="920" decoding="async" fetchpriority="high" alt="Tudo o que recebes: calendário de parede com os 12 meses, calendário de mesa e os 5 bónus (Novenas, Santo Terço, Evangelhos dos Domingos, Santinhos e versão a preto e branco)">
         </figure>
         <p class="lead">O Calendário Católico 2027 traz o santo de cada dia, a cor litúrgica, as datas da fé e uma devoção para cada mês. Recebes o ficheiro, imprimes em casa e a tua família reza o ano inteiro de olhos postos no essencial.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#na-tua-casa">Quero o meu calendário <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
         <ul class="ticks">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>365 dias com o santo do dia e a cor que a Igreja usa em cada celebração</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>12 meses ilustrados à mão, cada um com a sua devoção</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Versão de parede (A4) e de mesa (A5) no mesmo pack</span></li>
         </ul>
-        <div class="hero__cta">
-          <a class="btn" href="#na-tua-casa">Quero o meu calendário <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        </div>
         <ul class="chips">
           <li><svg aria-hidden="true"><use href="#i-print"/></svg>Pronto a imprimir</li>
-          <li><svg aria-hidden="true"><use href="#i-file"/></svg>Ficheiro PDF</li>
           <li><svg aria-hidden="true"><use href="#i-bolt"/></svg>Acesso imediato</li>
           <li><svg aria-hidden="true"><use href="#i-home"/></svg>Uso familiar</li>
         </ul>
@@ -520,26 +553,29 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
 
 <section class="anatomy" id="por-dentro">
   <div class="wrap anatomy__grid">
+    <div class="anat-fig">
+      <p class="tap-hint"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 11.5V5.2a1.6 1.6 0 013.2 0v5.3m0-1.2a1.6 1.6 0 013.2 0v1.6m0-.8a1.6 1.6 0 013.2 0V14c0 3.9-2.6 7-6.4 7-2.4 0-4-.9-5.4-2.7l-2.9-3.9a1.6 1.6 0 012.5-2l1.6 2V11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Carrega num número para ver mais</p>
     <div class="page-zoom">
       <img src="assets/mes-janeiro-720.webp" srcset="assets/mes-janeiro-360.webp 360w, assets/mes-janeiro-720.webp 720w, assets/mes-janeiro.webp 900w" sizes="(max-width:960px) 92vw, 560px" alt="Página de janeiro de 2027 do calendário de parede" width="900" height="1273" loading="lazy">
-      <span class="pin" style="left:17%;top:15%">1</span>
-      <span class="pin" style="left:88%;top:9.5%">2</span>
-      <span class="pin" style="left:62%;top:28%">3</span>
-      <span class="pin" style="left:37%;top:51%">4</span>
-      <span class="pin" style="left:91%;top:51%">5</span>
+      <button type="button" class="pin" data-i="1" style="left:17%;top:15%" aria-controls="lg-1" aria-label="Ver o ponto 1">1</button>
+      <button type="button" class="pin" data-i="2" style="left:88%;top:9.5%" aria-controls="lg-2" aria-label="Ver o ponto 2">2</button>
+      <button type="button" class="pin" data-i="3" style="left:62%;top:28%" aria-controls="lg-3" aria-label="Ver o ponto 3">3</button>
+      <button type="button" class="pin" data-i="4" style="left:37%;top:51%" aria-controls="lg-4" aria-label="Ver o ponto 4">4</button>
+      <button type="button" class="pin" data-i="5" style="left:91%;top:51%" aria-controls="lg-5" aria-label="Ver o ponto 5">5</button>
+    </div>
     </div>
     <div>
       <div class="sec-head">
         <h2>Cada mês, uma página para rezar.</h2>
         <p class="lead">Não é só um calendário bonito. Cada página foi pensada para a família consultar todos os dias.</p>
       </div>
-      <ol class="legend">
-        <li><div><h3>Ilustração da devoção</h3><p>Uma imagem em aguarela para cada mês, do Menino Jesus em janeiro ao Advento em dezembro.</p></div></li>
-        <li><div><h3>Devoção do mês e versículo</h3><p>Janeiro é o Mês do Santíssimo Nome de Jesus, maio é o Mês de Maria, outubro é o Mês do Rosário.</p></div></li>
-        <li><div><h3>Datas importantes</h3><p>As solenidades e festas do mês reunidas numa lista, para não deixar passar nenhuma.</p></div></li>
-        <li><div><h3>Santo do dia</h3><p>Todos os dias do ano têm o seu santo ou celebração, escrito por extenso.</p></div></li>
-        <li><div><h3>Cor litúrgica e fases da lua</h3><p>Uma bolinha mostra a cor que o padre usa na missa desse dia.</p>
-          <p class="colors"><span><i style="background:var(--green)"></i>Verde</span><span><i style="background:var(--violet)"></i>Roxo</span><span><i style="background:#fff"></i>Branco</span><span><i style="background:var(--red)"></i>Vermelho</span><span><i style="background:var(--rose)"></i>Rosa</span></p></div></li>
+      <ol class="legend" id="legend">
+        <li class="open" data-i="1"><button type="button" class="lg-h" aria-expanded="true" aria-controls="lg-1"><h3>Ilustração da devoção</h3><svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="lg-b" id="lg-1"><div><p>Uma imagem em aguarela para cada mês, do Menino Jesus em janeiro ao Advento em dezembro.</p></div></div></li>
+        <li data-i="2"><button type="button" class="lg-h" aria-expanded="false" aria-controls="lg-2"><h3>Devoção do mês e versículo</h3><svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="lg-b" id="lg-2"><div><p>Janeiro é o Mês do Santíssimo Nome de Jesus, maio é o Mês de Maria, outubro é o Mês do Rosário.</p></div></div></li>
+        <li data-i="3"><button type="button" class="lg-h" aria-expanded="false" aria-controls="lg-3"><h3>Datas importantes</h3><svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="lg-b" id="lg-3"><div><p>As solenidades e festas do mês reunidas numa lista, para não deixar passar nenhuma.</p></div></div></li>
+        <li data-i="4"><button type="button" class="lg-h" aria-expanded="false" aria-controls="lg-4"><h3>Santo do dia</h3><svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="lg-b" id="lg-4"><div><p>Todos os dias do ano têm o seu santo ou celebração, escrito por extenso.</p></div></div></li>
+        <li data-i="5"><button type="button" class="lg-h" aria-expanded="false" aria-controls="lg-5"><h3>Cor litúrgica e fases da lua</h3><svg aria-hidden="true"><use href="#i-plus"/></svg></button><div class="lg-b" id="lg-5"><div><p>Uma bolinha mostra a cor que o padre usa na missa desse dia.</p>
+          <p class="colors"><span><i style="background:var(--green)"></i>Verde</span><span><i style="background:var(--violet)"></i>Roxo</span><span><i style="background:#fff"></i>Branco</span><span><i style="background:var(--red)"></i>Vermelho</span><span><i style="background:var(--rose)"></i>Rosa</span></p></div></div></li>
       </ol>
     </div>
   </div>
@@ -615,6 +651,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
           <li class="off"><svg aria-hidden="true"><use href="#i-x"/></svg>Sem os 5 bónus</li>
         </ul>
         <a class="btn" href="#" data-plan="essencial">Quero o Essencial</a>
+        <div class="plan__trust"><p class="pay" aria-label="Pagamento com Visa, Mastercard ou MB WAY"><span class="pay__visa">VISA</span><span class="pay__mc" aria-hidden="true"><i></i><i></i></span><span class="pay__mbway">MB<b>WAY</b></span></p><p class="guar"><svg aria-hidden="true"><use href="#i-shield"/></svg>7 dias de garantia</p></div>
       </article>
 
       <article class="plan plan--full" aria-labelledby="p2">
@@ -624,7 +661,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
         <p class="plan__was">de <s>29,90&nbsp;€</s> por</p>
         <p class="plan__price"><b>14,90</b><span>€</span></p>
         <p class="plan__once">Pagamento único · uso familiar</p>
-        <figure class="plan__thumbs"><div class="plan__row"><img src="assets/capa-parede-t.webp" alt="Calendário de parede A4" width="68" height="96" loading="lazy"><img src="assets/mesa-capa-t.webp" alt="Calendário de mesa A5" width="136" height="96" loading="lazy"></div><div class="plan__row plan__row--bonus"><img src="assets/b-novenas-01-t.webp" alt="Novenas do Ano 2027" width="50" height="70" loading="lazy"><img src="assets/b-terco-1-t.webp" alt="Guia do Santo Terço" width="50" height="70" loading="lazy"><img src="assets/b-evangelhos-1-t.webp" alt="Evangelhos dos Domingos 2027" width="50" height="70" loading="lazy"><img src="assets/b-santinhos-1-t.webp" alt="Santinhos para oferecer" width="50" height="70" loading="lazy"><img src="assets/b-pb-05-t.webp" alt="Calendário a preto e branco" width="50" height="70" loading="lazy"></div><figcaption>Parede A4 + mesa A5 <b>+ 5 bónus</b></figcaption></figure>
+        <figure class="plan__mock"><img src="assets/topo-produtos-500.webp" alt="Tudo o que vem no Pack Completo: calendário de parede, calendário de mesa e os 5 bónus" width="500" height="575" loading="lazy" decoding="async"></figure>
         <ul>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Tudo o que está no Pack Essencial</li>
           <li class="plan__sep">E ainda 5 bónus</li>
@@ -635,6 +672,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
           <li class="gift"><svg aria-hidden="true"><use href="#i-gift"/></svg>Calendário a preto e branco</li>
         </ul>
         <a class="btn" href="#" data-plan="completo">Quero o Completo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <div class="plan__trust"><p class="pay" aria-label="Pagamento com Visa, Mastercard ou MB WAY"><span class="pay__visa">VISA</span><span class="pay__mc" aria-hidden="true"><i></i><i></i></span><span class="pay__mbway">MB<b>WAY</b></span></p><p class="guar"><svg aria-hidden="true"><use href="#i-shield"/></svg>7 dias de garantia</p></div>
       </article>
     </div>
     <div class="pay-note">
@@ -769,7 +807,7 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <a href="privacidade.html">Política de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
     </nav>
-    <p>© <span id="y">2026</span> Lar de Fé · Walison Guinzani · CPF 062.397.019-80. Produto digital para uso pessoal e familiar.</p>
+    <p>© <span id="y">2026</span> Lar de Fé. Produto digital para uso pessoal e familiar.</p>
     <p class="foot-legal">Este site não faz parte do site do Facebook nem da Meta Platforms, Inc. Além disso, este site não é endossado pelo Facebook de forma alguma. FACEBOOK e INSTAGRAM são marcas registadas da Meta Platforms, Inc. Este site também não é afiliado à Google.</p>
     <p class="foot-legal">Os resultados e a experiência de oração variam de pessoa para pessoa. O Calendário Católico 2027 é um material de apoio à vida de fé e não substitui a participação na vida da Igreja.</p>
   </div>
@@ -941,6 +979,35 @@ if (plansEl && "IntersectionObserver" in window) {
 }
 
 
+
+/* Depois de a página abrir, adianta o carregamento das imagens das primeiras secções */
+addEventListener("load", () => {
+  const warm = () => document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    if (img.getBoundingClientRect().top < innerHeight * 6) img.loading = "eager";
+  });
+  "requestIdleCallback" in window ? requestIdleCallback(warm, { timeout: 2000 }) : setTimeout(warm, 600);
+}, { once: true });
+
+/* Página por dentro: cada número abre a sua explicação */
+{
+  const sec = document.getElementById("por-dentro");
+  const pins = sec ? sec.querySelectorAll(".pin") : [], items = sec ? sec.querySelectorAll(".legend li") : [];
+  const set = (i, fromPin) => {
+    items.forEach(li => { const on = li.dataset.i === String(i); li.classList.toggle("open", on); li.querySelector(".lg-h").setAttribute("aria-expanded", on); });
+    pins.forEach(p => p.classList.toggle("on", p.dataset.i === String(i)));
+    sec.classList.add("touched");
+    if (fromPin && matchMedia("(max-width:960px)").matches) {
+      const li = sec.querySelector(`.legend li[data-i="${i}"]`);
+      setTimeout(() => { const r = li.getBoundingClientRect(); if (r.bottom > innerHeight || r.top < 0) li.scrollIntoView({ behavior: "smooth", block: "center" }); }, 320);
+    }
+  };
+  pins.forEach(p => {
+    p.addEventListener("click", () => set(p.dataset.i, true));
+    p.addEventListener("mouseenter", () => { if (matchMedia("(hover:hover)").matches) set(p.dataset.i, false); });
+  });
+  items.forEach(li => li.querySelector(".lg-h").addEventListener("click", () => set(li.dataset.i, false)));
+  if (pins.length) pins[0].classList.add("on");
+}
 
 /* No computador, a imagem dos produtos passa para a coluna da direita do topo */
 {
