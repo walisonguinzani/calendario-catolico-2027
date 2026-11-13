@@ -209,6 +209,20 @@ section{padding:clamp(72px,9vw,128px) 0}
 .steps-note{margin-top:40px;text-align:center;font-size:.95rem;color:var(--ink-soft)}
 
 /* Planos */
+/* Prova social */
+.proof{padding-bottom:clamp(48px,6vw,80px)}
+.proof__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;list-style:none;margin:0;padding:0}
+.proof__grid li{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:22px 20px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px}
+.proof__grid blockquote{margin:0;font:italic 400 1.12rem/1.45 var(--serif);color:var(--ink)}
+.proof__grid blockquote::before{content:"\201C";display:block;font:600 2.6rem/0.6 var(--serif);color:var(--gold);margin-bottom:10px}
+.proof__who{display:flex;align-items:center;gap:10px;margin-top:auto;font:500 .9rem var(--sans)}
+.proof__who i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font:600 .95rem var(--sans);font-style:normal;color:#fff;background:var(--navy)}
+.proof__grid li:nth-child(2) .proof__who i{background:var(--gold)}
+.proof__grid li:nth-child(3) .proof__who i{background:var(--green)}
+.proof__grid li:nth-child(4) .proof__who i{background:var(--violet)}
+.proof__who small{display:block;font-size:.78rem;color:var(--ink-soft);font-weight:400}
+@media (max-width:960px){.proof__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.proof__grid{grid-template-columns:1fr;gap:14px}}
 .plans{background:var(--cream)}
 .plans__grid{display:grid;grid-template-columns:1fr 1.12fr;gap:24px;align-items:center;max-width:980px;margin:0 auto}
 .plan{background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(28px,3.5vw,40px);position:relative}
@@ -584,6 +598,22 @@ dialog::backdrop{background:rgba(20,28,45,.7);backdrop-filter:blur(3px)}
       <li><span class="ico"><svg aria-hidden="true"><use href="#i-home"/></svg></span><div><h3>Reza</h3><p>Pendura na cozinha, no oratório ou deixa na secretária.</p></div></li>
     </ol>
     <p class="steps-note">Não tens impressora? Envia o PDF para uma papelaria ou reprografia: a impressão a cores em bom papel costuma ser barata.</p>
+  </div>
+</section>
+
+<section class="proof" id="depoimentos" aria-labelledby="t-proof">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2 id="t-proof">O que nos dizem as famílias</h2>
+      <p class="lead">Mensagens que recebemos de quem já tem o calendário em casa.</p>
+      <div class="ornament"><svg aria-hidden="true"><use href="#i-diamond"/></svg></div>
+    </div>
+    <ul class="proof__grid">
+      <li><blockquote>O calendário de mesa ficou mesmo giro no meu cantinho de oração.</blockquote><p class="proof__who"><i aria-hidden="true">I</i><span>Inês<small>por mensagem</small></span></p></li>
+      <li><blockquote>As ilustrações em aguarela ficaram muito fixes.</blockquote><p class="proof__who"><i aria-hidden="true">B</i><span>Beatriz<small>por mensagem</small></span></p></li>
+      <li><blockquote>Adorei o calendário!</blockquote><p class="proof__who"><i aria-hidden="true">L</i><span>Lourdes P.<small>por mensagem</small></span></p></li>
+      <li><blockquote>Obrigada! Adorei o calendário.</blockquote><p class="proof__who"><i aria-hidden="true">F</i><span>Fátima C.<small>por mensagem</small></span></p></li>
+    </ul>
   </div>
 </section>
 
